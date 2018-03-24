@@ -1,0 +1,9 @@
+Task:
+• present the initial source(s) as well as the most important related work
+• clearly state how and why these sources are important for your topic
+• plan about 10 minutes for the talk
+
+Hints:
+• Support your talk with a set of clear and precise slides.
+• Smart use of formalisms, preference for visualization
+• Duration: initial: 10 minutes; final: 20 minutes + 10 minutes Q&A
