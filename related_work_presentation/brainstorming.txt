@@ -1,0 +1,27 @@
+(x) Present initial source --> Ronen and Shamir: functionality extension attack
+(x) Precent related work
+(since we have to present taxonomy of attacks on iot devices)
+--> ignoring the functionality
+
+--> reducing the functionality
+
+--> misusing the functionality
+
+(since we focus on functionality extension attack)
+--> related work to functionality extension attack
+
+----------------------------------------------------------------------------
+
+structure presentation (and related work chapter)
+
+(1) ignoring functionality
+
+(2) reducing functionality
+
+(3) misusing functionality
+
+(4) extend functionality --> we focus on this attack, most impressive
+--> present linked paper here + related works
+
+
+note: 1,2,3 ~one page in related work chapter, cover half of presentation; 4 ~one page in related work chapter and also half of presentation since focus is on this attack
