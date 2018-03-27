@@ -14,7 +14,7 @@
 	intrahash = {1ec9f74336617b4511304c4b35818c79},
 	isbn = {978-1-5090-1752-2},
 	localfile = {EyalShamirLed.pdf},
-	pages = {3–12},
+	pages = {3--12},
 	publisher = {IEEE},
 	timestamp = {2016-06-07T11:40:17.000+0200},
 	title = {Extended Functionality Attacks on IoT Devices: The Case of Smart Lights.},
@@ -33,12 +33,13 @@
 	intrahash = {1992f56972cb40165a66bae07e2dfac2},
 	isbn = {978-83-946253-9-9},
 	localfile = {func_ignoring/Analysis_of_DDoS-Capable_IoT_Malwares.pdf},
-	pages = {807–816},
+	pages = {807--816},
 	timestamp = {2017-12-07T22:41:18.000+0100},
 	title = {Analysis of DDoS-Capable IoT Malwares.},
 	url = {http://dblp.uni-trier.de/db/conf/fedcsis/fedcsis2017.html#SpognardiDDG17; https://doi.org/10.15439/2017F288; http://www.bibsonomy.org/bibtex/21992f56972cb40165a66bae07e2dfac2/dblp},
 	x-color = {#0033ff},
 	x-fetchedfrom = {Bibsonomy},
+	note = {This is mostly useful if we want to cite small comments, such as the insecurity of IoT devices or the danger of DDoS attacks. We should consider it for taxonomy/1:ignoring functionality.},
 	year = 2017
 }
 
@@ -50,13 +51,18 @@
 	interhash = {52b6b60d0d4c1f0c8e7b6b9fdb9647a9},
 	intrahash = {4d0480fa6eefd39744a81bcacf53820c},
 	localfile = {func_ignoring/antonakakis-mirai-usenix.pdf},
-	pages = {1093–1110},
+	pages = {1093--1110},
 	publisher = {USENIX Association},
 	timestamp = {2017-09-02T11:36:07.000+0200},
 	title = {Understanding the Mirai Botnet.},
 	url = {http://dblp.uni-trier.de/db/conf/uss/uss2017.html#AntonakakisABBB17; https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/antonakakis; http://www.bibsonomy.org/bibtex/24d0480fa6eefd39744a81bcacf53820c/dblp},
 	x-color = {#0033ff},
 	x-fetchedfrom = {Bibsonomy},
+	note = {Only useful for taxonomy/1:ignoring functionality or for the high risk of IoT in general.
+	 They highlight that there are enough low-end devices that can be captured with almost no effort that it is practically impossible even for large companies to defend against DDoS attacks.
+	 They also give recommendations to fix the security issues.
+
+	 Unrelated but interesting: looks like some people tried using mirai to shut down other operators of mirai^^},
 	year = 2017
 }
 
@@ -85,7 +91,7 @@
 	journal = {IEEE Security \& Privacy},
 	localfile = {light/ronen-shamir-zigbee-worm.pdf},
 	number = 1,
-	pages = {54–62},
+	pages = {54--62},
 	timestamp = {2018-02-21T11:35:06.000+0100},
 	title = {IoT Goes Nuclear: Creating a Zigbee Chain Reaction.},
 	url = {http://dblp.uni-trier.de/db/journals/ieeesp/ieeesp16.html#RonenSWO18; http://doi.ieeecomputersociety.org/10.1109/MSP.2018.1331033; http://www.bibsonomy.org/bibtex/2c3a5be8c33cd5b8b0b7d03f9d85dcaf7/dblp},
@@ -93,5 +99,74 @@
 	x-color = {#0033ff},
 	x-fetchedfrom = {Bibsonomy},
 	year = 2018
+}
+
+@misc{zhang2017,
+	abstract = {  Inspired by the boom of the consumer IoT market, many device manufacturers,
+start-up companies and technology giants have jumped into the space.
+Unfortunately, the exciting utility and rapid marketization of IoT, come at the
+expense of privacy and security. Industry reports and academic work have
+revealed many attacks on IoT systems, resulting in privacy leakage, property
+loss and large-scale availability problems. To mitigate such threats, a few
+solutions have been proposed. However, it is still less clear what are the
+impacts they can have on the IoT ecosystem. In this work, we aim to perform a
+comprehensive study on reported attacks and defenses in the realm of IoT aiming
+to find out what we know, where the current studies fall short and how to move
+forward. To this end, we first build a toolkit that searches through massive
+amount of online data using semantic analysis to identify over 3000 IoT-related
+articles. Further, by clustering such collected data using machine learning
+technologies, we are able to compare academic views with the findings from
+industry and other sources, in an attempt to understand the gaps between them,
+the trend of the IoT security risks and new problems that need further
+attention. We systemize this process, by proposing a taxonomy for the IoT
+ecosystem and organizing IoT security into five problem areas. We use this
+taxonomy as a beacon to assess each IoT work across a number of properties we
+define. Our assessment reveals that relevant security and privacy problems are
+far from solved. We discuss how each proposed solution can be applied to a
+problem area and highlight their strengths, assumptions and constraints. We
+stress the need for a security framework for IoT vendors and discuss the trend
+of shifting security liability to external or centralized entities. We also
+identify open research problems and provide suggestions towards a secure IoT
+ecosystem.
+},
+	archiveprefix = {arXiv},
+	author = {Zhang, Nan and Demetriou, Soteris and Mi, Xianghang and Diao, Wenrui and Yuan, Kan and Zong, Peiyuan and Qian, Feng and Wang, XiaoFeng and Chen, Kai and Tian, Yuan and Gunter, Carl A. and Zhang, Kehuan and Tague, Patrick and Lin, Yue-Hsun},
+	comment = {published = 2017-03-28T21:22:02Z, updated = 2017-03-28T21:22:02Z},
+	eprint = {1703.09809v1},
+	localfile = {Zhang2017.pdf},
+	month = mar,
+	primaryclass = {cs.CR},
+	title = {Understanding IoT Security Through the Data Crystal Ball: Where We Are Now and Where We Are Going to Be},
+	url = {http://arxiv.org/abs/1703.09809v1; http://arxiv.org/pdf/1703.09809v1},
+	x-color = {#0033ff},
+	x-fetchedfrom = {arXiv.org},
+	year = {2017}
+}
+
+@misc{restuccia2018,
+	abstract = {  The Internet of Things (IoT) realizes a vision where billions of
+interconnected devices are deployed just about everywhere, from inside our
+bodies to the most remote areas of the globe. As the IoT will soon pervade
+every aspect of our lives and will be accessible from anywhere, addressing
+critical IoT security threats is now more important than ever. Traditional
+approaches where security is applied as an afterthought and as a "patch"
+against known attacks are insufficient. IoT challenges require a new
+secure-by-design vision, where threats are addressed proactively and IoT
+devices learn to dynamically adapt to different threats. In this paper, we
+first provide a taxonomy and survey the state of the art in IoT security
+research, and offer a roadmap of concrete research challenges to address
+existing and next-generation IoT security threats.
+},
+	archiveprefix = {arXiv},
+	author = {Restuccia, Francesco and D'Oro, Salvatore and Melodia, Tommaso},
+	comment = {published = 2018-03-13T19:49:32Z, updated = 2018-03-13T19:49:32Z},
+	eprint = {1803.05022v1},
+	localfile = {Restuccia2018.pdf},
+	month = mar,
+	primaryclass = {cs.CR},
+	title = {Securing the Internet of Things: New Perspectives and Research Challenges},
+	url = {http://arxiv.org/abs/1803.05022v1; http://arxiv.org/pdf/1803.05022v1},
+	x-fetchedfrom = {arXiv.org},
+	year = {2018}
 }
 
