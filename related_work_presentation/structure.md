@@ -26,7 +26,7 @@ About 5 minutes.
 0.5 minutes
 
 ### Encoding: Crafting of PWM signals
->1.5 minutes?
+1.5 minutes?
 
 ### Decoding: Analyzing the Signal
 1.5 minutes?
