@@ -148,26 +148,49 @@
 \subsection{Covert Channel}%
 \label{sub:covert_channel}
 
-\subsubsection{How (smart) LEDs work}%
-\label{sub:how_smart_leds_work}
-% with info about controller, ZLL, and PWM duty cycle for brightness
-
 \subsubsection{Requirements for Covert Channel}%
 \label{sub:requirements_for_covert_channel}
+\begin{frame}{Requirements for Covert Channel}
+	\begin{block}{Correctness}
+		Switch between 2 brightnesses that can be robustly distinguished by a sensor.
+	\end{block}
+	\begin{block}{Covertness}
+		Use brightnesses so similar or switch so fast that a human cannot distinguish them.
+	\end{block}
+\end{frame}
 % with info about human eyes
+
+\subsubsection{How (smart) LEDs work}%
+\label{sub:how_smart_leds_work}
+% TODO
+% with info about controller, ZLL, and PWM duty cycle for brightness
+% Probably want to add a duty cycle/brightness diagram or something.
 
 \subsubsection{Encoding: Crafting of PWM Signals}%
 \label{sub:encoding_crafting_of_pwm_signals}
+% TODO
+% - Talk about attacking/using the controller
+% - Talk about how to make sufficiently fast changes
+% - Diagram of the resulting signals?
+
+% Need to think about whether we want to cover LimitlessLED/LUX old/LUX new or only one of them!
 
 \subsubsection{Decoding: Light Sensor Signal Analysis}%
 \label{sub:decoding_light_sensor_signal_analysis}
+% TODO
+% - Describe receiving hardware setup
+% - Describe how the signal can be processed to get a bit stream
 
 \subsubsection{Why this Paper is Important for this Topic}%
 \label{sub:why_this_paper_is_important_for_this_topic}
+% TODO
+% Because it's the only one covering this topic, quite simply^^
+
 
 \subsection{Epilepsy Triggering Attack}%
 \label{sub:epilepsy_triggering_attack}
-
+% TODO Either we only mention it, or we expand it into a full .5 minutes slide.
+% Depends on whether we need to fill time I guess.
 
 %% to show a last slide similar to the title slide: information for the last page
 \title{Questions?}

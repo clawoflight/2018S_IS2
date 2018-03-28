@@ -19,10 +19,10 @@ About 5 minutes.
 
 ## Covert Channel
 
-### [How (smart) LEDs work?]
+### [Requirements for covert channel (1.2.1); How human Eyes work (3.2)?]
 0.5 minutes
 
-### [Requirements for covert channel (1.2.1); How human Eyes work (3.2)?]
+### [How (smart) LEDs work?]
 0.5 minutes
 
 ### Encoding: Crafting of PWM signals
