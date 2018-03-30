@@ -1,4 +1,4 @@
-@article{dhanjani2013,
+@article{Dhanjani:2013:HLSEPHPWLS,
 	author = {Dhanjani, Nitesh},
 	localfile = {light/Dhanjani-2013_Hacking_Lightbulbs_Hue.pdf},
 	title = {Hacking Lightbulbs: Security Evaluation of the Philips Hue Personal Wireless Lighting System},
@@ -6,7 +6,7 @@
 	year = {2013}
 }
 
-@inproceedings{RonenShamir:2016,
+@inproceedings{Ronen:2016:EFAIDCSL,
 	added-at = {2016-06-04T00:00:00.000+0200},
 	author = {Ronen, Eyal and Shamir, Adi},
 	booktitle = {EuroS\&P},
@@ -24,7 +24,7 @@
 	year = 2016
 }
 
-@inproceedings{spognardi:AnalysisDDoS-CapableIoTMalwares,
+@inproceedings{Spognardi:2017:ADIM,
 	added-at = {2017-09-27T00:00:00.000+0200},
 	author = {Spognardi, Angelo and Donno, Michele De and Dragoni, Nicola and Giaretta, Alberto},
 	booktitle = {FedCSIS},
@@ -42,7 +42,7 @@
 	year = 2017
 }
 
-@inproceedings{antonakakis:UnderstandingMiraiBotnet,
+@inproceedings{Antonakakis:2017:UMB,
 	added-at = {2017-09-01T00:00:00.000+0200},
 	author = {Antonakakis, Manos and April, Tim and Bailey, Michael and Bernhard, Matt and Bursztein, Elie and Cochran, Jaime and Durumeric, Zakir and Halderman, J. Alex and Invernizzi, Luca and Kallitsis, Michalis and Kumar, Deepak and Lever, Chaz and Ma, Zane and Mason, Joshua and Menscher, Damian and Seaman, Chad and Sullivan, Nick and Thomas, Kurt and Zhou, Yi},
 	booktitle = {USENIX Security Symposium},
@@ -60,30 +60,23 @@
 	year = 2017
 }
 
-@article{morgner:AllYourBulbsBelongUs,
+@article{Morgner:2016:AYBBUICSSCLS,
 	added-at = {2016-09-02T00:00:00.000+0200},
 	author = {Morgner, Philipp and Mattejat, Stephan and Benenson, Zinaida},
 	interhash = {858c7be1a12a383c9ffe9ecdb6cf7f11},
 	intrahash = {662e8d7bd595c184f83aebabbd782909},
 	journal = {CoRR},
 	localfile = {light/zigbee-lightlink-security.pdf},
+	note = {Useful to show insecurity of Smart Lights in particular. They give a good overview of attacks (as of 2016) against smart lights in section 5.2! This may be useful to show how dangerous the attack from our main paper can be: They can also take control of ZLL lightbulbs without WIFI access to the controller! This means that one could establish a covert channel from outside the building, or possibly bridge an air gap between networks. Also a fantastic introduction to Zigbee LightLink.},
 	timestamp = {2016-09-03T11:34:53.000+0200},
 	title = {All Your Bulbs Are Belong to Us: Investigating the Current State of Security in Connected Lighting Systems.},
 	url = {http://dblp.uni-trier.de/db/journals/corr/corr1608.html#MorgnerMB16; http://arxiv.org/abs/1608.03732; http://www.bibsonomy.org/bibtex/2662e8d7bd595c184f83aebabbd782909/dblp},
 	volume = {abs/1608.03732},
-	note = {Useful to show insecurity of Smart Lights in particular.
-	 They give a good overview of attacks (as of 2016) against smart lights in section 5.2!
-
-	 This may be useful to show how dangerous the attack from our main paper can be:
-	 They can also take control of ZLL lightbulbs without WIFI access to the controller!
-	 This means that one could establish a covert channel from outside the building, or possibly bridge an air gap between networks.
-
-	 Also a fantastic introduction to Zigbee LightLink.},
 	x-fetchedfrom = {Bibsonomy},
 	year = 2016
 }
 
-@article{RonenShamir:2018,
+@article{Ronen:2018:IGNCZCR,
 	abstract = {Within the next few years, billions of IoT devices will densely populate our cities. In this paper we describe a new type of threat in which adjacent IoT devices will infect each other with a worm that will rapidly spread over large areas, provided that the density of compatible IoT devices exceeds a certain critical mass. In particular, we developed and verified such an infection using the popular Philips Hue smart lamps as a platform. The worm spreads by jumping directly from one lamp to its neighbors, using only their built-in ZigBee wireless connectivity and their physical proximity. The attack can start by plugging in a single infected bulb anywhere in the city, and then catastrophically spread everywhere within minutes. It enables the attacker to turn all the city lights on or off, to permanently brick them, or to exploit them in a massive DDOS attack. To demonstrate the risks involved, we use results from percolation theory to estimate the critical mass of installed devices for a typical city such as Paris whose area is about 105 square kilometers: The chain reaction will fizzle if there are fewer than about 15,000 randomly located smart lamps in the whole city, but will spread everywhere when the number exceeds this critical mass (which had almost certainly been surpassed already). To make such an attack possible, we had to find a way to remotely yank already installed lamps from their current networks, and to perform over-the-air firmware updates. We overcame the first problem by discovering and exploiting a major bug in the implementation of the Touchlink part of the ZigBee Light Link protocol, which is supposed to stop such attempts with a proximity test. To solve the second problem, we developed a new version of a side channel attack to extract the global AES-CCM key (for each device type) that Philips uses to encrypt and authenticate new firmware. We used only readily available equipment costing a few hundred dollars, and managed to find this key without seeing any actual updates. This demonstrates once again how difficult it is to get security right even for a large company that uses standard cryptographic techniques to protect a major product.},
 	added-at = {2018-02-19T00:00:00.000+0100},
 	author = {Ronen, Eyal and Shamir, Adi and Weingarten, Achi-Or and O'Flynn, Colin},
@@ -102,7 +95,7 @@
 	year = 2018
 }
 
-@misc{zhang2017,
+@misc{Zhang:2017:UISTDCBWWNaWWG,
 	abstract = {  Inspired by the boom of the consumer IoT market, many device manufacturers,
 start-up companies and technology giants have jumped into the space.
 Unfortunately, the exciting utility and rapid marketization of IoT, come at the
@@ -144,7 +137,7 @@ ecosystem.
 	year = {2017}
 }
 
-@misc{restuccia2018,
+@misc{Restuccia:2018:SITNPaRC,
 	abstract = {  The Internet of Things (IoT) realizes a vision where billions of
 interconnected devices are deployed just about everywhere, from inside our
 bodies to the most remote areas of the globe. As the IoT will soon pervade
@@ -172,7 +165,7 @@ existing and next-generation IoT security threats.
 	year = {2018}
 }
 
-@article{angrishi2017,
+@article{Angrishi:2017:TitiiiviIb,
 	author = {Angrishi, Kishore},
 	journal = {arXiv preprint arXiv:1702.03681},
 	localfile = {func_ignoring/Angrishi_IoTBotnets.pdf},
@@ -181,5 +174,20 @@ existing and next-generation IoT security threats.
 	x-color = {#0033ff},
 	x-fetchedfrom = {Google Scholar},
 	year = {2017}
+}
+
+@article{Grau:2015:Ctyf,
+	author = {Grau, Alan},
+	journal = {IEEE Spectrum},
+	localfile = {Grau:2015:Ctyf.pdf},
+	number = {3},
+	pages = {50--56},
+	publisher = {IEEE},
+	title = {Can you trust your fridge?},
+	url = {http://ieeexplore.ieee.org/document/7049440/keywords},
+	volume = {52},
+	x-color = {#0033ff},
+	x-fetchedfrom = {Google Scholar},
+	year = {2015}
 }
 
