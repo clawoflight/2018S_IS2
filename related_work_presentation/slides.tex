@@ -83,6 +83,12 @@
 %     \vspace*{0cm plus 1fil}
 % \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Intro:
+% - names
+% - topic
+% - structure: First Taxonomy (main paper), then overview of main paper and possible related work
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% this sets the first PDF bookmark and triggers generation of the title page
 \section{Taxonomy of IoT Attacks}
@@ -101,7 +107,15 @@
 \begin{frame}{Ignoring Functionality}
 	% TODO talk about about DDoS, Mirai? Probably a graph of DDoS growth or something.
 
+	% The low security and network-attachment of IoT devices makes them perfect for botnets.
+	% And their low computing power makes them comparatively highly suitable for DDoS attacks (or spam).
+
 	% presentation-wise, definitely some visualization.
+	\pause{}
+	\begin{figure}
+		\centering
+		\includegraphics[keepaspectratio,height=.85 \paperheight]{img/DDoS_growth}
+	\end{figure}
 \end{frame}
 
 \subsection{Reducing Functionality}
@@ -109,6 +123,8 @@
 	% TODO Find examples of this in practice.
 	% We probably can cite something about disabling lights from one of our papers.
 	% Other nice things would be fridges or tvs, maybe we can find that?
+	% This can dangerous: a smart fridge that thaws meat every night can be deadly!
+	% https://www.infoworld.com/article/3176673/internet-of-things/your-smart-fridge-may-kill-you-the-dark-side-of-iot.html
 
 	% presentation-wise, probably just bullet-points?
 \end{frame}
@@ -126,7 +142,7 @@
 		\begin{itemize}
 			\item Turn on lights
 			\item Open Faucets
-			\item Run Washing Machine \\
+			\item Run Washing Machine
 		\end{itemize}
 		\dots~when the owners leave for vacation.
 	\end{block}
@@ -203,4 +219,4 @@
 
 \end{document}
 
-% vim: spell
+% vim: spell ts=2 sw=2
