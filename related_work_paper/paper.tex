@@ -22,11 +22,15 @@
 	The picture is so bleak that they suspect either a lack of expertise, or outright neglect of security design on the part of the vendors, which may be explained in part by the fact that many IoT companies are in fact small startups.
 	Their detailed vulnerability analysis and evaluation of defense mechanisms appears to be the state-of-the-art.
 
-	\subsection{Smart Light Security}%
+	\subsection{Smart Light Security}% TODO JULIA - check and ev shorten
 	\label{sub:smart_light_security}
-	\cite{Dhanjani:2013:HLSEPHPWLS} % Light bulbs
-	\cite{Morgner:2016:AYBBUICSSCLS} % Light bulbs & ZLL
-	\cite{Ronen:2018:IGNCZCR} % ZLL
+	The security of connected smart light systems is of decisive importance since smart light solutions are also used in public buildings and offices. Hence there are several former studies analyzing the security of IoT light bulbs \cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}. 
+	% Light bulbs
+	Dhanjani \cite{Dhanjani:2013:HLSEPHPWLS} found several ways to initiate \textit{Denail-of-Service} (DoS) attacks. He was able to cause sustained but also perpetual blackouts which can be of high risk i. e. if hospitals are involved. Those blackouts could be conducted due to insufficient security measures when connecting a smart light bulb with a controlling device. Dhanjani also mentioned the possibility of encryption flaws in the implementation of the \textit{ZigBee Light Link} (ZLL) which is used for the communication between the bridge and the light bulbs. But due to Dhanjani's findings the ZLL communication could only be intercepted if the attacker is physically close and thus such an attack would not be of high risk.
+	% Light bulbs & ZLL
+	Morgner et al. \cite{Morgner:2016:AYBBUICSSCLS} further investigated the fact of smart light systems being insecure due to ZLL and could show that this sort of attack is also of hight importance. They were able to control ZLL-certified light bulbs from a distance over 15 to 36 meters. Their research prove and particularized Dhanjani's \cite{Dhanjani:2013:HLSEPHPWLS} findings that exploitable vulnerabilities exist by the design of the ZLL standard. The ZLL standard provides the so called \textit{touchlink commissioning} which employs a global ZLL master key to secure the setup process. This master key was leaked in 2015 \cite{Morgner:2016:AYBBUICSSCLS} and ever since the touchlink procedure is considered to be insecure. Due to the flaws in the touchlink specification Morgner et al. were able to introduce a new network key which was then accepted by all connected light bulbs which further allowed them to send malicious commands. 
+	% ZLL
+	Ronen et al. \cite{Ronen:2018:IGNCZCR} also used ZLL to attack a smart light solution. Their attack was of even higher concern since they were able to exchange the light bulbs firmware with a malicious malware and because of vulnerabilities in the ZigBee communication they were able to further spread the malware over all approximate light bulbs. Thus an attacker would be able to launch a \textit{war-flight} and infect all smart lamps of a whole city.
 
 	\section{Functionality-Ignoring Attacks}%
 	\label{sec:functionality_ignoring_attacks}
@@ -56,8 +60,12 @@
 	\section{Functionality-Misusing Attacks}%
 	\label{sec:functionality_misusing_attacks}
 
-	\section{Functionality-Extending Attacks}%
+	\section{Functionality-Extending Attacks}% TODO JULIA
 	\label{sec:functionality_extending_attacks}
+	The most interesting sort of attack is the so called \textit{Functionality-Extending Attack} where an attacker uses the IoT lightbulb for other concerns than illumination. In particular an attacker can use an IoT light bulb to create a covert communication channel to steal sensitive data within a protected network.\newline
+	% TODO JULIA:
+	% 1 introduce communication with light
+	% 2 explain findings of shamir paper
 
 
 
