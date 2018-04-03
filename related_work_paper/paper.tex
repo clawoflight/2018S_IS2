@@ -26,10 +26,23 @@
 	\section{Functionality-Ignoring Attacks}%
 	\label{sec:functionality_ignoring_attacks}
 	% Focus on botnets for spam, ddos
-	\cite{Angrishi:2017:TitiiiviIb} % botnets
-	\cite{Antonakakis:2017:UMB} % Mirai
-	\cite{Kolias:2017:DIMaOB} % botnets
-	\cite{Spognardi:2017:ADIM} % DDoS botnets
+	A big portion of the research on IoT security was conducted about attacks ignoring the intended functionality of IoT devices. In particular, the appearance of the Mirai botnet led to multiple papers about botnets of IoT devices.
+
+	Angrishi~\cite{Angrishi:2017:TitiiiviIb} % botnets
+	makes the very important point that IoT devices can not be seen as specialized devices with added intelligence, but rather as (general) computing devices that are performing specialized tasks.
+	The important point being that they are networked computers with quite powerful microprocessors capable of doing much more than what the product was designed to do.
+	After giving an overview of DDoS-focused botnets and the attacks they performed, he gives recommendations for consumers and manufacturers to follow. My favourite out of his list for DDoS preSpognardivention is to hard-code IoT devices to limit communication to RFC 1918 private IP address spaces or the manufacturers IP address range.
+
+	Antonakakis~et~al.~\cite{Antonakakis:2017:UMB} % Mirai
+	published the most detailed and comprehensive history and analysis of the Mirai botnet, which was responsible for the then record-breaking 1.3Tb/s DDoS attack on the Dyn DNS provider.
+	One of the most interesting results from their research was the list of default passwords found in the source code of the malware, which clearly show it targeting cheap IoT devices, many of them IP cameras.
+	The authors conclude with a thorough list of security recommendations.
+	However, the most fascinating contribution of this paper is the incredibly thorough dissection of the evolution and attacks of Mirai, while the most lasting impact will probably be the realization that Mirai succeeded primarily because of incredibly low-hanging fruit: (tiny) dictionary attacks on devices accessible from the open internet.
+
+	% \cite{Kolias:2017:DIMaOB} % botnets % removed because strictly inferior to Antonakakis:2017:UMB
+	Donno~et~al.~\cite{Donno:2017:ADIM} % DDoS botnets
+	performed a thorough analysis of and classification of DDoS-capable IoT malwares.
+	Their thorough classification of malware by criteria such as architectural model, exploited vulnerability, or scanning strategy appears to be the state-of-the-art.
 
 	\section{Functionality-Reducing Attacks}%
 	\label{sec:functionality_reducing_attacks}
