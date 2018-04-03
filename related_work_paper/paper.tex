@@ -12,10 +12,15 @@
 	\subsection{General Security}%
 	\label{sub:general_security}
 
-	\cite{Grau:2015:Ctyf} % Fridge
-	\cite{Bhartiya::YSFMK} % Fridge and more
+	% \cite{Grau:2015:Ctyf} % Fridge and more % magazine article. nothing new here, good to make non-scientists aware of the issues though.
+	% \cite{Bhartiya::YSFMK} % Fridge and more % online article. nothing new here, except the idea that a fridge or freezer could be used for murder.
 	\cite{Restuccia:2018:SITNPaRC} % General
-  \cite{Zhang:2017:UISTDCBWWNaWWG} % General
+
+  Zhang~et al.~\cite{Zhang:2017:UISTDCBWWNaWWG} % General
+	conducted a wide-ranging survey of security in IoT devices.
+	In particular, they note that much academic literature is overly conservative because most security analyses are published in whitepapers and on blog, causing them to be ignored in scientific surveys.
+	The picture is so bleak that they suspect either a lack of expertise, or outright neglect of security design on the part of the vendors, which may be explained in part by the fact that many IoT companies are in fact small startups.
+	Their detailed vulnerability analysis and evaluation of defense mechanisms appears to be the state-of-the-art.
 
 	\subsection{Smart Light Security}%
 	\label{sub:smart_light_security}
@@ -31,7 +36,7 @@
 	Angrishi~\cite{Angrishi:2017:TitiiiviIb} % botnets
 	makes the very important point that IoT devices can not be seen as specialized devices with added intelligence, but rather as (general) computing devices that are performing specialized tasks.
 	The important point being that they are networked computers with quite powerful microprocessors capable of doing much more than what the product was designed to do.
-	After giving an overview of DDoS-focused botnets and the attacks they performed, he gives recommendations for consumers and manufacturers to follow. My favourite out of his list for DDoS preSpognardivention is to hard-code IoT devices to limit communication to RFC 1918 private IP address spaces or the manufacturers IP address range.
+	After giving an overview of DDoS-focused botnets and the attacks they performed, he gives recommendations for consumers and manufacturers to follow. My favourite out of his list for DDoS prevention is to hard-code IoT devices to limit communication to RFC 1918 private IP address spaces or the manufacturers IP address range.
 
 	Antonakakis~et~al.~\cite{Antonakakis:2017:UMB} % Mirai
 	published the most detailed and comprehensive history and analysis of the Mirai botnet, which was responsible for the then record-breaking 1.3Tb/s DDoS attack on the Dyn DNS provider.
