@@ -13,6 +13,8 @@ Mostly botnets, I guess.
 Funny examples to make people laught, see slides :)
 
 ## Extending Functionality
+Introduce communication with light (graphical illustration on slides)
+Give overview of attacks in Shamir paper (shortly introduce following section)
 
 # Ronen, Shamir paper in detail
 About 5 minutes.
@@ -35,3 +37,4 @@ About 5 minutes.
 0.5 minutes
 
 ## [Mention epilepsy triggering attack in passing?]
+Appendix
