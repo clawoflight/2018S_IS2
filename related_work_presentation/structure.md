@@ -13,8 +13,8 @@ Mostly botnets, I guess.
 Funny examples to make people laught, see slides :)
 
 ## Extending Functionality
-Introduce communication with light (graphical illustration on slides)
-Give overview of attacks in Shamir paper (shortly introduce following section)
+1 Give overview of attacks in Shamir paper (AC, Roomba)\
+2 Introduce communication/covert channel with light (graphical illustration on slides)
 
 # Ronen, Shamir paper in detail
 About 5 minutes.
