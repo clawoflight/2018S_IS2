@@ -182,9 +182,9 @@
     \only<4>{\centering\includegraphics{img/DatacenterIoT_4.png}}
 \end{frame}
 
-\title{Ronen, Shamir Paper}
-\subtitle{}
-\section{Ronen, Shamir Paper}
+\title{E. Ronen and A. Shamir Paper}
+\subtitle{Extended Functionality Attacks on IoT Devices: The Case of Smart Lights}
+\section{E. Ronen and A. Shamir Paper}
 
 \subsection{Covert Channel}%
 \label{sub:covert_channel}
@@ -206,6 +206,45 @@
 % TODO
 % with info about controller, ZLL, and PWM duty cycle for brightness
 % Probably want to add a duty cycle/brightness diagram or something.
+\begin{frame}{How (smart) LEDs Work}
+    \only<1> {
+        \begin{block}{RF Receiver (and transmitter)}
+            \begin{itemize}
+                \item For communication with controller
+                \item Communicate with ZigBee Light Link (ZLL)
+            \end{itemize}
+        \end{block}
+    }
+    \only<2> {
+        % TODO add pic ZLL communication
+         \begin{figure}
+            \centering
+            \includegraphics[height=5cm,keepaspectratio]{img/ZLL.JPG}
+            \caption{System architecture of a ZLL-based connected lighting system with two bulbs \footnote{Morgner et al. All Your Bulbs Are Belong to Us: Investigating the Current State of Security in Connected Lighting Systems}}
+         \end{figure}
+        
+    }
+    \only<3> {
+        \begin{block}{Processing Unit}
+            \begin{itemize}
+                \item For processing commands received from controller
+                \item LEDs are controlled using pulse width modulation (PWM) signals
+            \end{itemize}
+        \end{block}
+        
+        % TODO add pic sending pwm signal
+    }
+    \only<4> {
+        \begin{block}{Drivers and LEDs}
+            \begin{itemize}
+                \item Driver controls LED on and off states
+                \item Determine brightness level of bulb
+            \end{itemize}
+        \end{block}
+        
+         % TODO add illustration brightness control (PWM duty cycle method and according brightness change)
+    }
+\end{frame}
 
 \subsubsection{Encoding: Crafting of PWM Signals}%
 \label{sub:encoding_crafting_of_pwm_signals}
