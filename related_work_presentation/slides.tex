@@ -155,10 +155,9 @@
 \end{frame}
 
 \subsection{Extending Functionality}
-	% TODO The interesting things. I like the examples from the paper:
+	% The interesting things. I like the examples from the paper:
 	% Start a fire with AC, unlock front door with roomba (vacuum cleaner robot)
   % It seems like no other author has worked on this...
-
 	% Any idea of how to visualize that?
 \begin{frame}{Extending Functionality}
     \only<1>{
@@ -198,12 +197,15 @@
 	\begin{block}{Covertness}
 		Use brightnesses so similar or switch so fast that a human cannot distinguish them.
 	\end{block}
+	
+	%TODO: show gif led-flickering (taken from PubNub - Building the Raspberry Pi Smart House: Controlling Lights with PWM)
+
 \end{frame}
 % with info about human eyes
 
-\subsubsection{How (smart) LEDs work}%
+\subsubsection{How (smart) LEDs Work}%
 \label{sub:how_smart_leds_work}
-% TODO
+% 
 % with info about controller, ZLL, and PWM duty cycle for brightness
 % Probably want to add a duty cycle/brightness diagram or something.
 \begin{frame}{How (smart) LEDs Work}
@@ -216,13 +218,12 @@
         \end{block}
     }
     \only<2> {
-        % TODO add pic ZLL communication
+        % add pic ZLL communication
          \begin{figure}
             \centering
             \includegraphics[height=5cm,keepaspectratio]{img/ZLL.JPG}
-            \caption{System architecture of a ZLL-based connected lighting system with two bulbs \footnote{Morgner et al. All Your Bulbs Are Belong to Us: Investigating the Current State of Security in Connected Lighting Systems}}
+            \caption{\small{System architecture of a ZLL-based connected lighting system with two bulbs} \footnote{\tiny{Morgner et al. All Your Bulbs Are Belong to Us: Investigating the Current State of Security in Connected Lighting Systems}}}
          \end{figure}
-        
     }
     \only<3> {
         \begin{block}{Processing Unit}
@@ -232,17 +233,21 @@
             \end{itemize}
         \end{block}
         
-        % TODO add pic sending pwm signal
-    }
-    \only<4> {
         \begin{block}{Drivers and LEDs}
             \begin{itemize}
                 \item Driver controls LED on and off states
                 \item Determine brightness level of bulb
             \end{itemize}
         \end{block}
-        
-         % TODO add illustration brightness control (PWM duty cycle method and according brightness change)
+    }
+    \only<4> {
+         % add illustration brightness control (PWM duty cycle method and according brightness change)
+         
+        \begin{figure}
+            \centering
+            \includegraphics[height=5.5cm,keepaspectratio]{img/pwm-duty-cycle.png}
+            \caption{\small{Brightness control on LEDs} \footnote{\tiny{PubNub - Building the Raspberry Pi Smart House: Controlling Lights with PWM}}}
+        \end{figure}
     }
 \end{frame}
 
@@ -253,24 +258,43 @@
 % - Talk about how to make sufficiently fast changes
 % - Diagram of the resulting signals?
 
+
 % Need to think about whether we want to cover LimitlessLED/LUX old/LUX new or only one of them!
+% --> it's hard.. I'd say LimitlessLED since PWM signal analysis can be done more easily (according to paper), and there are known setup vulnerabilities (if we use the same version), BUT we'd then have less intensity values which will make it harder creating a real covert channel - BUT 3 top brightness levels of LimitlessLED are the same, so maybe those levels can be used in order to keep channel covert - so I'm not sure about that thought 
 
 \subsubsection{Decoding: Light Sensor Signal Analysis}%
 \label{sub:decoding_light_sensor_signal_analysis}
-% TODO
+% -> graphical illustration on slides, according description done verbally
 % - Describe receiving hardware setup
 % - Describe how the signal can be processed to get a bit stream
+\begin{frame}{Decoding: Light Sensor Signal Analysis}
+    \only<1> {
+        \centering
+        \includegraphics{img/Decoding_1.png}
+    }
+    \only<2> {
+        \centering
+        \includegraphics{img/Decoding_2.png}
+    }
+    \only<3> {
+        \centering
+        \includegraphics{img/Decoding_3.png}
+    }
+    \only<4> {
+        \centering
+        \includegraphics{img/Decoding_4.png}
+    }
+    \only<5> {
+        \centering
+        \includegraphics{img/Decoding_5.png}
+    }
+\end{frame}
 
 \subsubsection{Why this Paper is Important for this Topic}%
 \label{sub:why_this_paper_is_important_for_this_topic}
 % TODO
 % Because it's the only one covering this topic, quite simply^^
 
-
-\subsection{Epilepsy Triggering Attack}%
-\label{sub:epilepsy_triggering_attack}
-% TODO Either we only mention it, or we expand it into a full .5 minutes slide.
-% Depends on whether we need to fill time I guess.
 
 %% to show a last slide similar to the title slide: information for the last page
 \title{Questions?}
@@ -280,6 +304,10 @@
 
 %% appendix of 'extra' slides
 \appendix
+\subsection{Epilepsy Triggering Attack}%
+\label{sub:epilepsy_triggering_attack}
+% TODO Either we only mention it, or we expand it into a full .5 minutes slide.
+% Depends on whether we need to fill time I guess.
 
 \end{document}
 
