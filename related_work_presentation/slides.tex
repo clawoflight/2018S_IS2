@@ -155,7 +155,7 @@
 \end{frame}
 
 \subsection{Extending Functionality}
-	% The interesting things. I like the examples from the paper:
+	% TODO The interesting things. I like the examples from the paper:
 	% Start a fire with AC, unlock front door with roomba (vacuum cleaner robot)
   % It seems like no other author has worked on this...
 	% Any idea of how to visualize that?
@@ -205,7 +205,7 @@
 
 \subsubsection{How (smart) LEDs Work}%
 \label{sub:how_smart_leds_work}
-% 
+% TODO
 % with info about controller, ZLL, and PWM duty cycle for brightness
 % Probably want to add a duty cycle/brightness diagram or something.
 \begin{frame}{How (smart) LEDs Work}
@@ -218,7 +218,7 @@
         \end{block}
     }
     \only<2> {
-        % add pic ZLL communication
+        % TODO add pic ZLL communication
          \begin{figure}
             \centering
             \includegraphics[height=5cm,keepaspectratio]{img/ZLL.JPG}
@@ -241,7 +241,7 @@
         \end{block}
     }
     \only<4> {
-         % add illustration brightness control (PWM duty cycle method and according brightness change)
+         % TODO add illustration brightness control (PWM duty cycle method and according brightness change)
          
         \begin{figure}
             \centering
@@ -257,14 +257,43 @@
 % - Talk about attacking/using the controller
 % - Talk about how to make sufficiently fast changes
 % - Diagram of the resulting signals?
+\begin{frame}{Encoding: Access Controller}
+% description based on LimitlessLED
+    \only<1> {
+        \centering
+        \includegraphics{img/AttackController_1.png}
+    }
+    \only<2> {
+        \centering
+        \includegraphics{img/AttackController_2.png}
+    }
+    \only<3> {
+        \centering
+        \includegraphics{img/AttackController_3.png}
+    }
+    \only<4> {
+        \centering
+        \includegraphics{img/AttackController_4.png}
+    }
+    \only<5> {
+        \centering
+        \includegraphics{img/AttackController_5.png}
+    }
+    \only<6> {
+        \centering
+        \includegraphics{img/AttackController_6.png}
+    }
+\end{frame}
 
+\begin{frame}{Encoding: Crafting of PWM Signals}
+    % TODO: describe, + diagram of resulting signal
+\end{frame}
 
 % Need to think about whether we want to cover LimitlessLED/LUX old/LUX new or only one of them!
 % --> it's hard.. I'd say LimitlessLED since PWM signal analysis can be done more easily (according to paper), and there are known setup vulnerabilities (if we use the same version), BUT we'd then have less intensity values which will make it harder creating a real covert channel - BUT 3 top brightness levels of LimitlessLED are the same, so maybe those levels can be used in order to keep channel covert - so I'm not sure about that thought 
-
 \subsubsection{Decoding: Light Sensor Signal Analysis}%
 \label{sub:decoding_light_sensor_signal_analysis}
-% -> graphical illustration on slides, according description done verbally
+% TODO -> graphical illustration on slides, according description done verbally
 % - Describe receiving hardware setup
 % - Describe how the signal can be processed to get a bit stream
 \begin{frame}{Decoding: Light Sensor Signal Analysis}
