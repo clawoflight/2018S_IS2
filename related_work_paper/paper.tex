@@ -26,18 +26,29 @@
 	Restuccia~et~al.~\cite{Restuccia:2018:SITNPaRC} % General
 	recently provided a very good analysis and taxonomy of the systematic problems and future challenges of IoT security. The paper strongly advocates for security by design of connected devices from their cradle to their grave.
 
-	\subsection{Smart Light Security}% TODO - check and ev shorten
+	\subsection{Smart Light Security}% NOTE: proofread and shortened.
 	\label{sub:smart_light_security}
-	The security of smart light systems is of decisive importance since smart light solutions are also used in public buildings and offices. Hence there are several former studies analyzing the security of IoT light bulbs~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}.
+	The security of smart light systems is particularly important because of their ubiquity. Hence, researchers have studied them in detail.
+%	The security of smart light systems is of decisive importance since smart light solutions are also used in public buildings and offices. Hence there are several former studies analyzing the security of IoT light bulbs~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}.
 
 	% Light bulbs
-	Dhanjani~\cite{Dhanjani:2013:HLSEPHPWLS} found several ways to initiate \textit{Denail-of-Service}~(DoS) attacks. He was able to cause sustained but also perpetual blackouts which can be of high risk i. e. if hospitals are involved. Those blackouts could be conducted due to insufficient security measures when connecting a smart light bulb with a controlling device. Dhanjani also mentioned the possibility of encryption flaws in the implementation of the \textit{ZigBee Light Link}~(ZLL) which is used for the communication between the bridge and the light bulbs. But due to Dhanjani's findings the ZLL communication could only be intercepted if the attacker is physically close and thus such an attack would not be of high risk.
+	Dhanjani~\cite{Dhanjani:2013:HLSEPHPWLS} found several ways to initiate \textit{Denail-of-Service}~(DoS) attacks.
+	He was able to cause sustained blackouts which can be of high risk i.e.\ if hospitals are involved.
+	The primary security issue allowing this attack lay in the connection of smart bulbs to their controller.
+	Dhanjani also mentioned the possibility of encryption flaws in the implementation of the \textit{ZigBee Light Link}~(ZLL) which is used for communication between the bridge and the light bulbs. However, this attack would only work within close proximity, limiting it's impact.
 
 	% Light bulbs & ZLL
-	Morgner~et~al.~\cite{Morgner:2016:AYBBUICSSCLS} further investigated the fact of smart light systems being insecure due to ZLL and could show that this sort of attack is also of high importance. They were able to control ZLL-certified light bulbs from a distance over 15 to 36 meters. Their research prove and particularized Dhanjani's~\cite{Dhanjani:2013:HLSEPHPWLS} findings that exploitable vulnerabilities exist by the design of the ZLL standard. The ZLL standard provides the so called \textit{touchlink~commissioning} which employs a global ZLL master key to secure the setup process. This master key was leaked in 2015~\cite{Morgner:2016:AYBBUICSSCLS} and ever since the touchlink procedure is considered to be insecure. Due to the flaws in the touchlink specification Morgner~et~al. were able to introduce a new network key which was then accepted by all connected light bulbs which further allowed the authors to send malicious commands.
+	Morgner~et~al.~\cite{Morgner:2016:AYBBUICSSCLS} further investigated the security of ZLL and showed that the aforementioned attack is more dangerous than anticipated.
+	They were able to control ZLL-certified light bulbs from a distance over 15 to 36 meters.
+	Their research proved and particularized Dhanjani's~\cite{Dhanjani:2013:HLSEPHPWLS} findings that exploitable vulnerabilities exist in the design of the ZLL standard.
+ZLL provides the so-called \textit{touchlink~commissioning} which uses a global ZLL master key to secure the setup process.
+This master key was leaked in 2015~\cite{Morgner:2016:AYBBUICSSCLS} and ever since the touchlink procedure is considered to be insecure.
+Due to the flaws in the touchlink specification Morgner~et~al.\ were able to introduce a new network key which was then accepted by all connected light bulbs, further allowing the authors to send malicious commands.
 
 	% ZLL
-	Ronen~et~al.~\cite{Ronen:2018:IGNCZCR} also used flaws in ZLL to attack smart light solutions. Their attack was of even higher concern since they were able to exchange the light bulbs firmware with a malicious malware and because of vulnerabilities in the ZigBee communication they were able to further spread the malware over all approximate light bulbs. Thus an attacker would be able to launch a \textit{war-flight} and infect all smart lamps of a whole city.
+	Ronen~et~al.~\cite{Ronen:2018:IGNCZCR} also used flaws in ZLL to attack smart light solutions.
+	Their attack was of even higher concern since they were able to exchange the light bulbs firmware with one containing malware, and, because of vulnerabilities in the ZigBee communication, they were able to further spread the malware over all nearby light bulbs.
+	Thus, an attacker would be able to launch a \textit{war-flight} and infect all smart lamps of a whole city.
 
 	\section{Functionality-Ignoring Attacks}% NOTE: proofread and shortened. Not sure we should keep it though!
 	\label{sec:functionality_ignoring_attacks}
@@ -55,9 +66,17 @@
 
 	% \cite{Kolias:2017:DIMaOB} % botnets % removed because strictly inferior to Antonakakis:2017:UMB
 
-	\section{Functionality-Extending Attacks}% TODO - check and ev shorten
+	\section{Functionality-Extending Attacks}% NOTE: proofread and shortened.
 	\label{sec:functionality_extending_attacks}
-	The most interesting sort of attack is the so called \textit{Functionality-Extending~Attack} where an attacker uses the IoT lightbulb for other purposes than illumination. In particular an attacker can use light~emitting~diodes~(LEDs) for an optical wireless communication system, which was elaborated several years ago~\cite{Komine:2004:FAfVLCSuLL, Elgala:2007:OVLWCBoWL}. Since smart light solutions use LEDs, Ronen~and~Shamir~\cite{Ronen:2016:EFAIDCSL} were able to create a covert communication channel in association with their security analysis of IoT devices. As the setup process of an IoT light bulb is vulnerable~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}, Ronen and Shamir were able to abuse the \textit{application~programming~interface}~(API) of the IoT light bulb in order to let the LEDs switch between two light intensities at a very high rate, such that it cannot be noticed by the human eye but can be detected by a light sensor. The light sensor measures the exact duration and frequency of those flickers and converts it to a digital frequency in order to leak sensitive data. Ronen and Shamir could show that this kind of attack is also possible on \textit{protected} networks, i. e. air-gapped networks. Besides leaking data through a covert channels they have shown that the light flickering can also be misused for creating epileptic seizures.
+The most interesting kind of attack is the so called \textit{Functionality-Extending~Attack} where e.g.\ an attacker uses an IoT lightbulb for other purposes than illumination.
+	In particular, an attacker can use light~emitting~diodes~(LEDs) for an optical wireless communication system, which was elaborated several years ago~\cite{Komine:2004:FAfVLCSuLL, Elgala:2007:OVLWCBoWL}. % TODO: maybe add a sentence about PWM duty cycle here?
+	Since smart light solutions use LEDs, Ronen~and~Shamir~\cite{Ronen:2016:EFAIDCSL} were able to create a covert communication channel using smart lights.
+	As the setup process of an IoT light bulb is vulnerable~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}, Ronen and Shamir were able to abuse the \textit{application~programming~interface}~(API) of the IoT light bulb in order to make the LEDs switch between two light intensities at a very high rate, such that it cannot be noticed by the human eye but can be detected by a light sensor. % TODO: Not sure about that sentence. The setup vulnerability is more of an added problem, no?
+	% The core issue is that the LEDs can change brightness faster than 60Hz, which shouldn't be necessary or allowed (c.f. the fact that newer HUEs cannot flicker very fast).
+	% The other attack directly measured the PWM duty cycle, nothing can be done about that. That's why the second attack would still work.
+	The light sensor measures the exact duration and frequency of those flickers and converts it to a digital frequency in order to leak sensitive data.
+	Ronen and Shamir showed that this kind of attack can be used to extract data from air-gapped networks.
+	Besides leaking data through a covert channels, they have shown that the light flickering can also be misused for creating epileptic seizures.
 
 	\newpage
 
