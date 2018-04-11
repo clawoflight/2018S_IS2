@@ -9,59 +9,51 @@
 	\section{Security of IoT Devices}%
 	\label{sec:security_of_iot_devices}
 
-	\subsection{General Security}%
+	\subsection{General Security}% NOTE: Proofread and shortened
 	\label{sub:general_security}
 
 	% \cite{Grau:2015:Ctyf} % Fridge and more % magazine article. nothing new here, good to make non-scientists aware of the issues though.
 	% \cite{Bhartiya::YSFMK} % Fridge and more % online article. nothing new here, except the idea that a fridge or freezer could be used for murder.
 
-  Zhang~et~al.~\cite{Zhang:2017:UISTDCBWWNaWWG} % General
-	conducted a wide-ranging survey of security in IoT devices.
-	In particular, they note that much academic literature is overly conservative because most security analyses are published in whitepapers and on blog, causing them to be ignored in scientific surveys.
-	The picture is so bleak that they suspect either a lack of expertise, or outright neglect of security design on the part of the vendors, which may be explained in part by the fact that many IoT companies are in fact small startups.
-	Their detailed vulnerability analysis and evaluation of defense mechanisms appears to be the state-of-the-art.
+  It is widely known that IoT devices have poor security in general.
+	The most recent state-of-the art security survey was performed by
+	Zhang~et~al.~\cite{Zhang:2017:UISTDCBWWNaWWG} % General
+	They provide a detailed analysis of vulnerabilities and defence mechanisms.
+	In particular, they note that much academic literature is overly conservative because most security analyses are published in whitepapers and on blogs, causing them to be ignored in scientific surveys.
+	They suspect either a lack of expertise, or outright neglect of security design on the part of the vendors.
 
+	Additionally,
 	Restuccia~et~al.~\cite{Restuccia:2018:SITNPaRC} % General
-	recently provided a very good analysis and taxonomy of the problems and challenges of IoT security, and more importantly, future challenges that need to be addressed. The paper strongly advocates for security by design of connected devices from their cradle to their grave.
-	In order to achieve this, they highlight the need for learning systems capable of detecting threats, as well as polymorphism capable of responding to attacks.
+	recently provided a very good analysis and taxonomy of the systematic problems and future challenges of IoT security. The paper strongly advocates for security by design of connected devices from their cradle to their grave.
 
 	\subsection{Smart Light Security}% TODO - check and ev shorten
 	\label{sub:smart_light_security}
-	The security of smart light systems is of decisive importance since smart light solutions are also used in public buildings and offices. Hence there are several former studies analyzing the security of IoT light bulbs~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}. 
+	The security of smart light systems is of decisive importance since smart light solutions are also used in public buildings and offices. Hence there are several former studies analyzing the security of IoT light bulbs~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}.
+
 	% Light bulbs
 	Dhanjani~\cite{Dhanjani:2013:HLSEPHPWLS} found several ways to initiate \textit{Denail-of-Service}~(DoS) attacks. He was able to cause sustained but also perpetual blackouts which can be of high risk i. e. if hospitals are involved. Those blackouts could be conducted due to insufficient security measures when connecting a smart light bulb with a controlling device. Dhanjani also mentioned the possibility of encryption flaws in the implementation of the \textit{ZigBee Light Link}~(ZLL) which is used for the communication between the bridge and the light bulbs. But due to Dhanjani's findings the ZLL communication could only be intercepted if the attacker is physically close and thus such an attack would not be of high risk.
+
 	% Light bulbs & ZLL
-	Morgner~et~al.~\cite{Morgner:2016:AYBBUICSSCLS} further investigated the fact of smart light systems being insecure due to ZLL and could show that this sort of attack is also of high importance. They were able to control ZLL-certified light bulbs from a distance over 15 to 36 meters. Their research prove and particularized Dhanjani's~\cite{Dhanjani:2013:HLSEPHPWLS} findings that exploitable vulnerabilities exist by the design of the ZLL standard. The ZLL standard provides the so called \textit{touchlink~commissioning} which employs a global ZLL master key to secure the setup process. This master key was leaked in 2015~\cite{Morgner:2016:AYBBUICSSCLS} and ever since the touchlink procedure is considered to be insecure. Due to the flaws in the touchlink specification Morgner~et~al. were able to introduce a new network key which was then accepted by all connected light bulbs which further allowed the authors to send malicious commands. 
+	Morgner~et~al.~\cite{Morgner:2016:AYBBUICSSCLS} further investigated the fact of smart light systems being insecure due to ZLL and could show that this sort of attack is also of high importance. They were able to control ZLL-certified light bulbs from a distance over 15 to 36 meters. Their research prove and particularized Dhanjani's~\cite{Dhanjani:2013:HLSEPHPWLS} findings that exploitable vulnerabilities exist by the design of the ZLL standard. The ZLL standard provides the so called \textit{touchlink~commissioning} which employs a global ZLL master key to secure the setup process. This master key was leaked in 2015~\cite{Morgner:2016:AYBBUICSSCLS} and ever since the touchlink procedure is considered to be insecure. Due to the flaws in the touchlink specification Morgner~et~al. were able to introduce a new network key which was then accepted by all connected light bulbs which further allowed the authors to send malicious commands.
+
 	% ZLL
 	Ronen~et~al.~\cite{Ronen:2018:IGNCZCR} also used flaws in ZLL to attack smart light solutions. Their attack was of even higher concern since they were able to exchange the light bulbs firmware with a malicious malware and because of vulnerabilities in the ZigBee communication they were able to further spread the malware over all approximate light bulbs. Thus an attacker would be able to launch a \textit{war-flight} and infect all smart lamps of a whole city.
 
-	\section{Functionality-Ignoring Attacks}%
+	\section{Functionality-Ignoring Attacks}% NOTE: proofread and shortened. Not sure we should keep it though!
 	\label{sec:functionality_ignoring_attacks}
 	% Focus on botnets for spam, ddos
-	A big portion of the research on IoT security was conducted about attacks ignoring the intended functionality of IoT devices. In particular, the appearance of the Mirai botnet led to multiple papers about botnets of IoT devices.
+	A big portion of the research on IoT security was conducted about attacks ignoring the intended functionality of IoT devices. In particular, the appearance of the Mirai botnet led to multiple papers about botnets comprised of IoT devices.
 
 	Angrishi~\cite{Angrishi:2017:TitiiiviIb} % botnets
-	makes the very important point that IoT devices can not be seen as specialized devices with added intelligence, but rather as (general) computing devices that are performing specialized tasks.
-	The important point being that they are networked computers with quite powerful microprocessors capable of doing much more than what the product was designed to do.
-	After giving an overview of DDoS-focused botnets and the attacks they performed, he gives recommendations for consumers and manufacturers to follow. My favourite out of his list for DDoS prevention is to hard-code IoT devices to limit communication to RFC 1918 private IP address spaces or the manufacturers IP address range.
+	makes the very important point that IoT devices should not be seen as specialized devices with added intelligence, but rather as (general) computing devices that are performing specialized tasks.
+	Attackers are certainly aware of this, and most attacks on IoT devices involve botnets for DDoS or spamming. DDoS-capable malware was surveyed and classified by Donno~et~al.~\cite{Donno:2017:ADIM}.
 
-	Antonakakis~et~al.~\cite{Antonakakis:2017:UMB} % Mirai
-	published the most detailed and comprehensive history and analysis of the Mirai botnet, which was responsible for the then record-breaking 1.3Tb/s DDoS attack on the Dyn DNS provider.
-	One of the most interesting results from their research was the list of default passwords found in the source code of the malware, which clearly show it targeting cheap IoT devices, many of them IP cameras.
-	The authors conclude with a thorough list of security recommendations.
-	However, the most fascinating contribution of this paper is the incredibly thorough dissection of the evolution and attacks of Mirai, while the most lasting impact will probably be the realization that Mirai succeeded primarily because of incredibly low-hanging fruit: (tiny) dictionary attacks on devices accessible from the open internet.
+	The most comprehensive analysis of the Mirai botnet, responsible for the record-breaking 1.3Tb/s DDoS on DynDNS, was published by
+	Antonakakis~et~al.~\cite{Antonakakis:2017:UMB}. % Mirai
+	In particular, they found a list of default passwords found in the source code of the malware, which clearly show it targeting cheap IoT devices, many of them IP cameras.
+	They clearly show that Mirai succeeded primarily because of incredibly low-hanging fruit: (tiny) dictionary attacks on devices accessible from the open internet were enough.
 
 	% \cite{Kolias:2017:DIMaOB} % botnets % removed because strictly inferior to Antonakakis:2017:UMB
-	Donno~et~al.~\cite{Donno:2017:ADIM} % DDoS botnets
-	performed a thorough analysis of and classification of DDoS-capable IoT malwares.
-	Their thorough classification of malware by criteria such as architectural model, exploited vulnerability, or scanning strategy appears to be the state-of-the-art.
-
-	\section{Functionality-Reducing Attacks}%
-	\label{sec:functionality_reducing_attacks}
-
-
-	\section{Functionality-Misusing Attacks}%
-	\label{sec:functionality_misusing_attacks}
 
 	\section{Functionality-Extending Attacks}% TODO - check and ev shorten
 	\label{sec:functionality_extending_attacks}
