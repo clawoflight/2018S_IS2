@@ -251,6 +251,8 @@
     }
 \end{frame}
 
+% TODO: the following sections cover attacking limitless led only, should we add philips too? - if yes please just tell me how they accessed the controller to actually send the api commands which further allowed the flickering - since I don't understand although I read the paper several times now...
+
 \subsubsection{Encoding: Crafting of PWM Signals}%
 \label{sub:encoding_crafting_of_pwm_signals}
 % TODO
@@ -287,6 +289,16 @@
 
 \begin{frame}{Encoding: Crafting of PWM Signals}
     % TODO: describe, + diagram of resulting signal
+    % Philips: send undocumented API command to flicker at high rate
+    
+    % 1: Limitless: repeatedly send low commands followed by high commands to flicker at high rate
+    \begin{figure}
+        \centering
+        \includegraphics[height=5.5cm,keepaspectratio]{img/fast-flickering_limitlessLED.JPG}
+        \caption{\small{Smooth control of PWM duty cycle \footnote{\tiny{Ronen and Shamir. Extended Functionality Attacks on IoT Devices: The Case of Smart Lights}}}}
+    \end{figure}
+    
+     
 \end{frame}
 
 % Need to think about whether we want to cover LimitlessLED/LUX old/LUX new or only one of them!
@@ -324,11 +336,33 @@
 % TODO
 % Because it's the only one covering this topic, quite simply^^
 \begin{frame}{Why this Paper is Important for our Topic}
-    
+    \begin{block}{The One and Only}
+        \begin{itemize}
+            \item Cluster IoT attacks in presented fashion
+            \item Functionality extension attack
+            \item Covert Channel on IoT light bulb
+        \end{itemize}
+    \end{block}
 \end{frame}
 
-\begin{frame}{Open Questions regarding our Project}
+\begin{frame}{Open Questions regarding our Project} % TODO: please check this slide and change if sth is wrong or add what is missing since I cannot find much information on led versions and according changes...
+    \begin{block}{LimitlessLED}
+        \begin{itemize}
+            \item Faults in API
+            \begin{itemize}
+                \item BUT have new API version now
+            \end{itemize}
+        \end{itemize}
+    \end{block}
     
+    \begin{block}{Philips Lux}
+        \begin{itemize}
+            \item Faults in flickering frequence 
+            \begin{itemize}
+                \item BUT have new verion of light bulb now
+            \end{itemize}
+        \end{itemize}
+    \end{block}
 \end{frame}
 
 
