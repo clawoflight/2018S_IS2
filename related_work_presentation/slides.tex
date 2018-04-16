@@ -92,7 +92,7 @@
 
 %% this sets the first PDF bookmark and triggers generation of the title page
 \section{Taxonomy of IoT Attacks}
-\begin{frame}{Taxonomy of IoT Attacks}
+\begin{frame}{Taxonomy of IoT Attacks~\cite{Ronen:2016:EFAIDCSL}}
 	\begin{enumerate}
 		\item Ignoring Functionality
 		\item Reducing Functionality
@@ -104,9 +104,11 @@
 
 %% this just generates PDF bookmarks
 \subsection{Ignoring Functionality}
-\begin{frame}{Ignoring Functionality}
-	% TODO talk about about DDoS, Mirai? Probably a graph of DDoS growth or something.
-
+\begin{frame}{Ignoring Functionality~\cite{Angrishi:2017:TitiiiviIb, Antonakakis:2017:UMB, Donno:2017:ADIM}}
+	\note{m \\
+	systematic insecurity, highly used for DDoS and spamming.
+	TODO: read the chapter from the paper before practicing
+  }
 	% The low security and network-attachment of IoT devices makes them perfect for botnets.
 	% And their low computing power makes them comparatively highly suitable for DDoS attacks (or spam).
 
@@ -119,14 +121,21 @@
 \end{frame}
 
 \subsection{Reducing Functionality}
-\begin{frame}{Reducing Functionality}
-	% TODO Find examples of this in practice.
+\begin{frame}{Reducing Functionality~\cite{Dhanjani:2013:HLSEPHPWLS, Ronen:2018:IGNCZCR, Bhartiya::YSFMK}}
+	\note{m \\
+		Disabling things can be very dangerous when more and more of them become connected.
+
+		e.g. blackout entire city with ZLL drive-by attack.
+		
+		Also mention the fridge murder story.
+
+		TODO: re-read what caused the blackout - lightning?
+	}
 	% We probably can cite something about disabling lights from one of our papers.
 	% Other nice things would be fridges or tvs, maybe we can find that?
 	% This can dangerous: a smart fridge that thaws meat every night can be deadly!
 
 	% presentation-wise, probably just bullet-points?
-  % Allan Tannenbaum/Getty Images
 	\centering
 	\begin{figure}
 		\includegraphics{img/nyc-blackout.jpg}
@@ -159,7 +168,7 @@
 	% Start a fire with AC, unlock front door with roomba (vacuum cleaner robot)
   % It seems like no other author has worked on this...
 	% Any idea of how to visualize that?
-\begin{frame}{Extending Functionality}
+\begin{frame}{Extending Functionality~\cite{Ronen:2016:EFAIDCSL}}
     \only<1>{
         \begin{block}{Possible Extending Functionality Attacks}
             \begin{itemize}
@@ -174,7 +183,7 @@
     \only<3>{\centering\includegraphics{img/AC-attack_3.png}}  
 \end{frame}
 
-\begin{frame}{Extending Functionality - The Case of Smart Lights}
+\begin{frame}{Extending Functionality --- The Case of Smart Lights}
     \only<1>{\centering\includegraphics{img/DatacenterIoT_1.png}}
     \only<2>{\centering\includegraphics{img/DatacenterIoT_2.png}}
     \only<3>{\centering\includegraphics{img/DatacenterIoT_3.png}}
@@ -213,7 +222,7 @@
         \begin{block}{RF Receiver (and transmitter)}
             \begin{itemize}
                 \item For communication with controller
-                \item Communicate with ZigBee Light Link (ZLL)
+								\item Communicate with ZigBee Light Link (ZLL)~\cite{Ronen:2018:IGNCZCR}
             \end{itemize}
         \end{block}
     }
@@ -229,7 +238,7 @@
         \begin{block}{Processing Unit}
             \begin{itemize}
                 \item For processing commands received from controller
-                \item LEDs are controlled using pulse width modulation (PWM) signals
+								\item LEDs are controlled using pulse width modulation (PWM) signals~\cite{Yu:2014:BCDRCVLOS,Elgala:2007:OVLWCBoWL}
             \end{itemize}
         \end{block}
         
@@ -348,7 +357,7 @@
 \begin{frame}{Open Questions regarding our Project} % TODO: please check this slide and change if sth is wrong or add what is missing since I cannot find much information on led versions and according changes...
     \begin{block}{LimitlessLED}
         \begin{itemize}
-            \item Faults in API
+            \item Faults in API % TODO
             \begin{itemize}
                 \item BUT have new API version now
             \end{itemize}
@@ -357,7 +366,7 @@
     
     \begin{block}{Philips Lux}
         \begin{itemize}
-            \item Faults in flickering frequence 
+            \item Faults in flickering frequence  % TODO
             \begin{itemize}
                 \item BUT have new verion of light bulb now
             \end{itemize}
@@ -378,6 +387,11 @@
 \label{sub:epilepsy_triggering_attack}
 % TODO Either we only mention it, or we expand it into a full .5 minutes slide.
 % Depends on whether we need to fill time I guess.
+
+\begin{frame}[allowframebreaks]{Bibliography}
+	\bibliographystyle{alpha}
+	\bibliography{../papers/literature.bib}
+\end{frame}
 
 \end{document}
 
