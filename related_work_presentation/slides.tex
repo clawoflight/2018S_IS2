@@ -6,6 +6,12 @@
 %% ------------------------------------------------------------------
 \usepackage{graphicx}
 \usetheme[nototalframenumber,logo,license]{uibk}
+
+%% NOTES
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right} % Both
+
+
 %% ------------------------------------------------------------------
 %% - foot: Add a footer line for conference name and date.
 %% - logo: Add the university logo in the footer (only if 'foot' set).
@@ -99,15 +105,20 @@
 		\item Misusing Functionality
 		\item Extending Functionality
 	\end{enumerate}
-	\note{Briefly introduce the taxonomy to give viewers an overview.}
+	\note{1m \\
+
+	Briefly introduce the taxonomy to give viewers an overview.}
 \end{frame}
 
 %% this just generates PDF bookmarks
 \subsection{Ignoring Functionality}
 \begin{frame}{Ignoring Functionality~\cite{Angrishi:2017:TitiiiviIb, Antonakakis:2017:UMB, Donno:2017:ADIM}}
-	\note{m \\
-	systematic insecurity, highly used for DDoS and spamming.
-	TODO: read the chapter from the paper before practicing
+	\note{1m \\
+		systematic insecurity, highly used for DDoS and spamming. [Angrishi]
+
+		Analysis of Mirai by [Antonakakis] showed massive vulnerabilities, weak default passwords etc. as the cause.
+
+		Many IoT devices will cause more problems, esp.\@ DDoS (see 1.2TB/s DynDNS) [Donno]
   }
 	% The low security and network-attachment of IoT devices makes them perfect for botnets.
 	% And their low computing power makes them comparatively highly suitable for DDoS attacks (or spam).
@@ -122,14 +133,13 @@
 
 \subsection{Reducing Functionality}
 \begin{frame}{Reducing Functionality~\cite{Dhanjani:2013:HLSEPHPWLS, Ronen:2018:IGNCZCR, Bhartiya::YSFMK}}
-	\note{m \\
+	\note{1m \\
 		Disabling things can be very dangerous when more and more of them become connected.
 
 		e.g. blackout entire city with ZLL drive-by attack.
+		(image was lightning strike)
 		
-		Also mention the fridge murder story.
-
-		TODO: re-read what caused the blackout - lightning?
+  	Fridge murder story.
 	}
 	% We probably can cite something about disabling lights from one of our papers.
 	% Other nice things would be fridges or tvs, maybe we can find that?
@@ -145,6 +155,10 @@
 
 \subsection{Misusing Functionality}
 \begin{frame}{Misusing Functionality}
+	\note{30s \\
+		This is probably more annoying than dangerous.
+
+	}
 	\begin{block}{Create Discomfort}
 		\begin{itemize}
 			\item Heat in summer, AC in winter
@@ -168,8 +182,14 @@
 	% Start a fire with AC, unlock front door with roomba (vacuum cleaner robot)
   % It seems like no other author has worked on this...
 	% Any idea of how to visualize that?
-\begin{frame}{Extending Functionality~\cite{Ronen:2016:EFAIDCSL}}
-    \only<1>{
+\begin{frame}{Extending Functionality~\cite{Ronen:2016:EFAIDCSL,Guri:2017:xCDEANvRL}}
+	\note{30s \\
+		\begin{itemize}
+			\item Most interesting
+			\item Almost no reseach (Ronen, Guri (Router LEDs))
+		\end{itemize}
+	}
+    \only<+>{
         \begin{block}{Possible Extending Functionality Attacks}
             \begin{itemize}
                 \item Open front door with smart household robots
@@ -179,15 +199,18 @@
         \vspace{0.5cm}
         \centering\includegraphics{img/AC-attack_1.png}
     }
-    \only<2>{\centering\includegraphics{img/AC-attack_2.png}}
-    \only<3>{\centering\includegraphics{img/AC-attack_3.png}}  
+    \only<+>{\centering\includegraphics{img/AC-attack_2.png}}
+    \only<+>{\centering\includegraphics{img/AC-attack_3.png}}  
 \end{frame}
 
 \begin{frame}{Extending Functionality --- The Case of Smart Lights}
-    \only<1>{\centering\includegraphics{img/DatacenterIoT_1.png}}
-    \only<2>{\centering\includegraphics{img/DatacenterIoT_2.png}}
-    \only<3>{\centering\includegraphics{img/DatacenterIoT_3.png}}
-    \only<4>{\centering\includegraphics{img/DatacenterIoT_4.png}}
+	\note{30s \\
+		Interesting because light is often the only part of the EM-spectrum that is allowed to leave air-gapped systems.
+	}
+    \only<+>{\centering\includegraphics{img/DatacenterIoT_1.png}}
+    \only<+>{\centering\includegraphics{img/DatacenterIoT_2.png}}
+    \only<+>{\centering\includegraphics{img/DatacenterIoT_3.png}}
+    \only<+>{\centering\includegraphics{img/DatacenterIoT_4.png}}
 \end{frame}
 
 \title{E. Ronen and A. Shamir Paper}
