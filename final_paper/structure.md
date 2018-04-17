@@ -1,21 +1,21 @@
-# Introduction
+# 1 Introduction
 
-# Related Work
+# 2 Related Work
 
-# IoT Security
-## Ignoring Func
-## Extending Func
-### IoT Light Bulbs
+# 3 IoT Security
+## 3.1 Ignoring Func
+## 3.2 Extending Func
+### 3.2.1 IoT Light Bulbs
 
-# Proj Requ
-## Covert Channel
-## Communication with Light
+# 4 Proj Requ
+## 4.1 Covert Channel
+## 4.2 Communication with Light
 
-# Proj Descr
-## Proj Setup
-## Attack Descr
-### Contorl Light Bulb
-### Crafting PWM Signal
-### Get Data
+# 5 Proj Descr
+## 5.1 Proj Setup
+## 5.2 Attack Descr
+### 5.2.1 Contorl Light Bulb
+### 5.2.2 Crafting PWM Signal
+### 5.2.3 Get Data
 
-# Conclusion
+# 6 Conclusion
