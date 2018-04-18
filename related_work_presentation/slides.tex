@@ -5,6 +5,7 @@
 %% - aspectratio=169: Set paper aspect ratio to 16:9.
 %% ------------------------------------------------------------------
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usetheme[nototalframenumber,logo,license]{uibk}
 
 %% NOTES
@@ -229,9 +230,10 @@
 	\begin{block}{Covertness}
 		Use brightnesses so similar or switch so fast that a human cannot distinguish them.
 	\end{block}
-	
 	%TODO: show gif led-flickering (taken from PubNub - Building the Raspberry Pi Smart House: Controlling Lights with PWM)
-
+	\begin{block}{Human Eyes}
+	    \url{file://img/led-flickering.gif}
+	\end{block}
 \end{frame}
 % with info about human eyes
 
@@ -371,7 +373,7 @@
     \begin{block}{The One and Only}
         \begin{itemize}
             \item Cluster IoT attacks in presented fashion
-            \item Functionality extension attack
+            \item Functionality extension attack \cite{Guri:2017:xCDEANvRL}
             \item Covert Channel on IoT light bulb
         \end{itemize}
     \end{block}
