@@ -214,8 +214,11 @@
     \only<+>{\centering\includegraphics{img/DatacenterIoT_4.png}}
 \end{frame}
 
+%Go more into detail func extend attack on IoT bulb \\
+%Look at results of Ronen/Shamir
 \title{E. Ronen and A. Shamir Paper}
 \subtitle{Extended Functionality Attacks on IoT Devices: The Case of Smart Lights}
+
 \section{E. Ronen and A. Shamir Paper}
 
 \subsection{Covert Channel}%
@@ -224,6 +227,9 @@
 \subsubsection{Requirements for Covert Channel}%
 \label{sub:requirements_for_covert_channel}
 \begin{frame}{Requirements for Covert Channel}
+\note{ \\
+        show gif 
+    }
 	\begin{block}{Correctness}
 		Switch between 2 brightnesses that can be robustly distinguished by a sensor.
 	\end{block}
@@ -244,6 +250,9 @@
 % Probably want to add a duty cycle/brightness diagram or something.
 \begin{frame}{How (smart) LEDs Work}
     \only<1> {
+    \note{ \\
+        Brightness changes using controller
+    }
         \begin{block}{RF Receiver (and transmitter)}
             \begin{itemize}
                 \item For communication with controller
@@ -252,6 +261,9 @@
         \end{block}
     }
     \only<2> {
+        \note{ \\
+            RF receiver, ZLL
+        }
         % TODO add pic ZLL communication
          \begin{figure}
             \centering
@@ -260,6 +272,11 @@
          \end{figure}
     }
     \only<3> {
+    \note{ \\
+        PU interprets commands -> controls LEDs modulating PW \\
+        \\
+        Mod. signal sent to driver -> turn on off -> smooth changes 
+    }
         \begin{block}{Processing Unit}
             \begin{itemize}
                 \item For processing commands received from controller
@@ -276,7 +293,9 @@
     }
     \only<4> {
          % TODO add illustration brightness control (PWM duty cycle method and according brightness change)
-         
+        \note{ \\
+            Here: see procedure of changing duty cycle
+        } 
         \begin{figure}
             \centering
             \includegraphics[height=5.5cm,keepaspectratio]{img/pwm-duty-cycle.png}
@@ -296,32 +315,57 @@
 \begin{frame}{Encoding: Access Controller}
 % description based on LimitlessLED
     \only<1> {
+    \note{ \\
+        now look at attack
+    }
         \centering
         \includegraphics{img/AttackController_1.png}
     }
     \only<2> {
+    \note{ \\
+        need access to user WIFI
+    }
         \centering
         \includegraphics{img/AttackController_2.png}
     }
     \only<3> {
+    \note{ \\
+        One Possibility: sniff setup -> sometimes vulnerable
+    }
         \centering
         \includegraphics{img/AttackController_3.png}
     }
     \only<4> {
+    \note{ \\
+        sniff PW -> join -> send cmds
+    }
         \centering
         \includegraphics{img/AttackController_4.png}
     }
     \only<5> {
+    \note{ \\
+        Ex annoy victim
+    }
         \centering
         \includegraphics{img/AttackController_5.png}
     }
     \only<6> {
+    \note{ \\
+        OR change brightness levels
+    }
         \centering
         \includegraphics{img/AttackController_6.png}
     }
 \end{frame}
 
 \begin{frame}{Encoding: Crafting of PWM Signals}
+\note{ \\ 
+        Manipulate PWM \\
+        \\
+        Send cmd series \\
+        \\
+        Causes smooth decrease in duty cycle -> inc back
+    }
     % TODO: describe, + diagram of resulting signal
     % Philips: send undocumented API command to flicker at high rate
     
@@ -344,22 +388,37 @@
 % - Describe how the signal can be processed to get a bit stream
 \begin{frame}{Decoding: Light Sensor Signal Analysis}
     \only<1> {
+    \note{ \\
+        To read data ...
+    }
         \centering
         \includegraphics{img/Decoding_1.png}
     }
     \only<2> {
+    \note{ \\
+        measure flickers
+    }
         \centering
         \includegraphics{img/Decoding_2.png}
     }
     \only<3> {
+    \note{ \\
+        Frequence output to Arduino -> count edges
+    }
         \centering
         \includegraphics{img/Decoding_3.png}
     }
     \only<4> {
+    \note{ \\
+        send to Lap -> decode
+    }
         \centering
         \includegraphics{img/Decoding_4.png}
     }
     \only<5> {
+    \note{ \\
+        read out data
+    }
         \centering
         \includegraphics{img/Decoding_5.png}
     }
@@ -370,6 +429,9 @@
 % TODO
 % Because it's the only one covering this topic, quite simply^^
 \begin{frame}{Why this Paper is Important for our Topic}
+\note{ \\
+        Guri et al.
+    }
     \begin{block}{The One and Only}
         \begin{itemize}
             \item Cluster IoT attacks in presented fashion
@@ -380,6 +442,12 @@
 \end{frame}
 
 \begin{frame}{Open Questions regarding our Project} % TODO: please check this slide and change if sth is wrong or add what is missing since I cannot find much information on led versions and according changes...
+\note{ \\
+        Attack based on LimitLESS -> not sure if fixed in new API \\
+        Philips works different -> undocumented API cmd, not sure if fixed in new bulb \\
+        \\
+        tend to Philips -> much more brightness levels -> not that easy to detect changes -> fast flickering more easy if changes fixed ?!
+    }
     \begin{block}{LimitlessLED}
         \begin{itemize}
             \item Faults in API % TODO
@@ -398,6 +466,7 @@
         \end{itemize}
     \end{block}
 \end{frame}
+
 
 
 %% to show a last slide similar to the title slide: information for the last page
