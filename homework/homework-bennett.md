@@ -57,13 +57,37 @@ In this case it would be better to polinate all warn off keys to maximize the od
 
 Utility functions:
 
-u1(ag,ag) = 0
-u1(ag,mc) = 0.2 * 0.25 * -7
-u1(mc,ag) = 0.8 * 1.5 + 0.2 * -7
-u1(mc,mc) = 0.6 * 1.5 + 0.4 * -7
+\begin{equation*}
+\begin{aligned}
+u1(ag,ag) &= 0 \\
+u1(ag,mc) &= 0.2 \times 0.25 \times -7 \\
+u1(mc,ag) &= 1.5 + 0.2 \times -7 \\
+u1(mc,mc) &= 1.5 + 0.2 \times -7 + 0.2 \times 0.25 \times -7\\
+u2(ag,ag) &= 0 \\
+u2(ag,mc) &= 1.5 + 0.2 \times -7 \\
+u2(mc,ag) &= 0.2 \times 0.25 \times -7 \\
+u2(mc,mc) &= 1.5 + 0.2 \times -7 + 0.2 \times 0.25 \times -7\\
+\end{aligned}
+\end{equation*}
 
-u2(ag,ag) = 0
-u2(ag,mc) = 0.8 * 1.5 + 0.2 * -7
-u2(mc,ag) = 0.2 * 0.25 * -7
-u2(mc,mc) = 0.6 * 1.5 + 0.4 * -7
+Matrix form:
+
+\begin{center}
+  \begin{tabular}{l | c c}
+  & 2 air-gapped & 2 minecraft \\
+  \hline
+  1 air-gapped & $(0,0)$ & $(-0.35,0.1)$ \\
+  1 minecraft & $(0.1,-0.35)$ & $(-0.25,-0.25)$
+  \end{tabular}
+\end{center}
+
+Nash Equilibria:
+
+\paragraph{Social Optima}
+The social optimum is for both admins to air-gap their system.
+
+Which game applies?
+The prisoners dilemma: Social optimum if both air-gap, but (slight) advantage if one is the only one to play minecraft.
+
+I would definitely not apply for this job.
 
