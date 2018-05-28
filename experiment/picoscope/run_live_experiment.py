@@ -20,7 +20,7 @@ def setupScope():
     """
     ps = ps3000a.PS3000a()
 
-    res = ps.setSamplingFrequency(2E6, numSamples)
+    res = ps.setSamplingFrequency(10E6, numSamples)
     ps.setChannel("A", "AC", 10)
     print("Sampling @ %f MHz, %d samples" % (res[0] / 1E6, res[1]))
     return [ps, res[0]]
@@ -80,7 +80,7 @@ def main():
     plot(data, rate, bstart, bend)
 
     # Serialize the data for later re-use
-    with open("{}-{}.pickle".format(bstart, bend), 'wb') as fp:
+    with open("{}-{}@{}.pickle".format(bstart, bend, rate), 'wb') as fp:
         pickle.dump(data, fp)
 
 if __name__ == "__main__":
