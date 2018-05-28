@@ -1,0 +1,43 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{graphicx}
+
+% environment for itemization on titlepage
+\newenvironment{nospaceitemize}
+{ \begin{itemize}
+		\setlength{\itemsep}{0pt}
+		\setlength{\parskip}{0pt}
+		\setlength{\parsep}{0pt}     }
+	{ \end{itemize}                  } 
+
+\begin{document}
+	
+	% title page
+	% TODO: refactor title
+	\input{tex/titlepage.tex}
+
+	\clearpage
+	
+	% table of contents
+	\tableofcontents
+	\thispagestyle{empty}
+	\clearpage 
+	\pagenumbering{arabic} 
+	
+	% chapters
+	% TODO: refactor chapter name
+	\input{tex/introduction.tex}
+	\input{tex/related-work.tex}
+	\input{tex/iot-security.tex}
+	\input{tex/related-topics.tex}
+	\input{tex/experiment.tex}
+	\input{tex/attack.tex}
+	\input{tex/results.tex}
+	\input{tex/conclusion.tex}
+
+	\newpage
+	
+	% bibliography
+	\bibliographystyle{plain}
+	\bibliography{bib/literature.bib}
+\end{document}

@@ -1,0 +1,20 @@
+\section{Covert Channel on IoT Light Bulb}
+\label{sec:experiment}
+
+In order to crate a covert channel and show that data can be transmitted over this channel, a transmitting as well as a receiving setup is needed. For transmission one Philips Hue light bulb together with its controller is used. To receive the data a light sensor connected to an Arduino board as well as a Picoscope was used.\newline
+In the following sections first the setup components and their functionality are described in detail. After that the actual attack is elaborated.\newline
+
+\subsection{Experimental Setup}
+\label{sec:setup}
+
+% TODO: add cost estimation here + ev link pics of setup
+
+\noindent\textbf{IoT Light Bulb.} We used the Philips Hue White light bulbs. The bulbs come together with a Wi-Fi bridge which allows to remotely control the them using i. e. a laptop. In order to send brightness change commands we used a command line based version of the Hue API which allows us to easily send the commands via the python script we used for realizing the data transmission. The Philips Hue White has 255 different brightness levels. % TODO: check if num of light intensities is correct
+In order to encode the covert communication channel we need to switch between two nearby intensities at a very high rate, since this produces small changes in the PWM duty cycle. The flickers must be done in a way such that the light sensor can properly detect those changes but a human cannot see them. \newline
+
+\noindent\textbf{Light Sensor.} We used the TAOS TCS3200 Color Sensor for measuring the changes in light intensity and get the corresponding frequency output. This sensor can easily be used with Arduino. \newline 
+
+\noindent\textbf{Arduino.} Other than former researchers \cite{Ronen:2016:EFAIDCSL}, we used the Arduino board as power source only, since the frequency output can more easily be measured using the \textit{PicoScope} described below. \newline
+
+\noindent\textbf{Picoscope.} To decode out our covert channel we used the PicoScope 3205D MSO since it is capable of sampling 10 MS/s, which we need in order to measure the light sensor's frequency output. Actually, the PicoScope is able to sample up to 1 GS/s, but for our needs 10 MS/s suffice.
+
