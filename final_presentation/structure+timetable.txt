@@ -1,0 +1,21 @@
+Final presentation and demonstration:
+• introduce why your topic is relevant
+• first, give the theoretical background
+• then, give a small demonstration
+• ideally, conclude with an outlook
+• plan about 20 minutes for the talk/demonstration
+and additional 10 minutes for Q&A
+
+----------------------------------------------------------------------------------------------------------------------------
+
+(1) Why topic is relevant - 5 min
+talk about different kind of attacks iot opens, shortly describe them
+
+(2) Theortical background - 6 min
+talk about functionality extension attack and how we implemented the attack 
+
+(3) Demonstration - 5 min
+show experiment
+
+(4) Conclusion and Outlook - 4 min
+shortly conclude our findings and talk about further researches needed (more eyes on smart home systems, actually research to attacks mentioned in shamir parper is needed (none found))
