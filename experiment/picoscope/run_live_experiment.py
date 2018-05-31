@@ -11,7 +11,7 @@ import pickle
 import sys
 import time
 
-numSamples = 2000000
+numSamples = 10000000
 
 def setupScope():
     """Open a connection to the picoscope and setup channel & sampling rate.
@@ -23,7 +23,7 @@ def setupScope():
     res = ps.setSamplingFrequency(10E6, numSamples)
     ps.setChannel("A", "AC", 10)
     print("Sampling @ %f MHz, %d samples" % (res[0] / 1E6, res[1]))
-    return [ps, res[0]]
+    return (ps, res[0])
 
 def plot(data, freq, bstart, bend):
     """Plot the given data.
@@ -60,14 +60,14 @@ def main():
     os.system("hueadm light 1 \"={}\"".format(bstart))
 
     # Setup the osci
-    [scope, rate] = setupScope()
+    (scope, rate) = setupScope()
 
     # Start collecting data from the osci
     scope.runBlock()
 
     # Change brightness levels
     os.system("hueadm light 1 \"={}\"".format(bend))
-    time.sleep(.1)
+    # time.sleep(.01)
     os.system("hueadm light 1 \"={}\"".format(bstart))
 
     # Wait until data was collected
