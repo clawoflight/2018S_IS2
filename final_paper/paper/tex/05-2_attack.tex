@@ -1,0 +1,22 @@
+% TODO - WORK IN PROGRESS
+\subsection{Attack Description}
+\label{sec:exp:description}
+
+% TODO intro
+
+The following paragraphs give a detailed description of the main steps to realize such an attack. Therefore we first need to look more precisely at the functional principle of smart light bulbs. Further we have a look at how smooth brightness changes are achieved and how we actually get data out of the received signal.\newline
+
+%write about brightness change frequency, why high sampling frequency is needed, Human eye threshold; mention parts in python program ... 
+
+% TODO talk about Short-time Fourier transform in corresponding section -> To illustrate the temporal change of the frequency spectrum of a signal.
+
+\subsubsection{Contorlling Smart Light Bulbs.} 
+% --> describe components of smart LEDs, how they work, controller communication
+The communication with the controller is ensured through a \textit{RF receiver} and relies on the \textit{ZigBee~Light~Link}~(ZLL) protocol. The received commands are further forwarded to the \textit{processing unit} which interprets the processed signal and controls the LED by modulating the pulse width. The PWM allows the different dimming factors. When sending a brightness change command via the Hue API, this automatically forces the processing unit to generate the corresponding PWM signal. The PWM is sent to the LED drivers which further turn the LEDs on and off at a very fast rate such that those changes in the duty cycle cannot be seen by the human eye. Since Hue comes with 255 brightness levels which need to be differentiated smoothly, a PWM with a frequency around 20 KHz is used \cite{Ronen:2016:EFAIDCSL}. 
+
+\subsubsection{Crafting PWM Signal.}
+% --> describe how fast changes are achieved, frequency output with light sensor, collection of signal with picoscope
+% TODO Thus we need to measure small off periods of only about 200 ns. With the light sensor we used as well as our picoscope 
+
+\subsubsection{Getting Data.}
+% --> describe analysis of signal
