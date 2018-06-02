@@ -1,0 +1,1 @@
+extend script with option to not flicker, for live demo

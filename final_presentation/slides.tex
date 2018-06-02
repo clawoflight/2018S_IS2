@@ -1,0 +1,200 @@
+%% Begin slides template file
+\documentclass[11pt,t,usepdftitle=false,aspectratio=169]{beamer}
+%% ------------------------------------------------------------------
+%% - aspectratio=43: Set paper aspect ratio to 4:3.
+%% - aspectratio=169: Set paper aspect ratio to 16:9.
+%% ------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usetheme[nototalframenumber,logo,license]{uibk}
+
+%% NOTES
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right} % Both
+
+
+%% ------------------------------------------------------------------
+%% - foot: Add a footer line for conference name and date.
+%% - logo: Add the university logo in the footer (only if 'foot' set).
+%% - bigfoot/sasquatch: Larger font size in footer.
+%% - nototalslidenumber: Hide the total number of slides (only if 'foot' set)
+%% - license: Add CC-BY license symbol to title slide (e.g., for conference uploads)
+%%   (TODO: At the moment no other licenses are supported.)
+%% - licenseall: Add CC-BY license symbol to all subsequent slides slides
+%% - url: use \url{} rather than \href{} on the title page
+%% ------------------------------------------------------------------
+
+%% ------------------------------------------------------------------
+%% The official corporate colors of the university are predefined and
+%% can be used for e.g., highlighting something. Simply use
+%% \color{uibkorange} or \begin{color}{uibkorange} ... \end{color}
+%% Defined colors are:
+%% - uibkblue, uibkbluel, uibkorange, uibkorangel, uibkgray, uibkgraym, uibkgrayl
+%% The frametitle color can be easily adjusted e.g., to black with
+%% \setbeamercolor{titlelike}{fg=black}
+%% ------------------------------------------------------------------
+
+%\setbeamercolor{verbcolor}{fg=uibkorange}
+%% ------------------------------------------------------------------
+%% Setting a highlight color for verbatim output such as from
+%% the commands \pkg, \email, \file, \dataset
+%% ------------------------------------------------------------------
+
+
+%% information for the title page ('short title' is the pdf-title that is shown in viewer's titlebar)
+\title[IoT Light Bulb Attack]{IoT Light Bulb Covert Channel}
+\subtitle{Extended Functionality Attack on Smart Lights}
+\URL{}
+
+\author[Julia Wanker \& Bennett Piater]{Julia Wanker, Bennett Piater}
+%('short author' is the pdf-metadata Author)
+%% If multiple authors are required and the font size is too large you
+%% can overrule the font size of author and url by calling:
+%\setbeamerfont{author}{size*={10pt}{10pt},series=\mdseries}
+%\setbeamerfont{url}{size*={10pt}{10pt},series=\mdseries}
+%\URL{}
+%\subtitle{}
+
+\footertext{}
+\date{2018-06-14}
+
+\headerimage{3}
+%% ------------------------------------------------------------------
+%% The theme offers four different header images based on the
+%% corporate design of the university of innsbruck. Currently
+%% 1, 2, 3 and 4 is allowed as input to \headerimage{...}. Default
+%% or fallback is '1'.
+%% ------------------------------------------------------------------
+
+\begin{document}
+
+%% ALTERNATIVE TITLEPAGE
+%% The next block is how you add a titlepage with the 'nosectiontitlepage' option, which switches off
+%% the default behavior of creating a titlepage every time a \section{} is defined.
+%% Then you can use \section{} as it's originally intended, including a table of contents.
+% \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{titlebackground.pdf}}
+% \begin{frame}[plain]
+%     \titlepage
+% \end{frame}
+% \addtocounter{framenumber}{-1}
+% \usebackgroundtemplate{}}
+
+%% Table of Contents, if wanted:
+%% this requires the 'nosectiontitlepage' option and setting \section{}'s as you want them to appear here.
+%% Subsections and subordinates are suppressed in the .sty at the moment, search
+%% for \setbeamertemplate{subsection} and replace the empty {} with whatever you want.
+%% Although it's probably too much for a presentation, maybe for a lecture.
+% \begin{frame}
+%     \vspace*{1cm plus 1fil}
+%     \tableofcontents
+%     \vspace*{0cm plus 1fil}
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Intro:
+% - names
+% - topic
+% - structure: First Taxonomy (main paper), then overview of main paper and possible related work
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Topic Relevance} % 5 min
+\label{sec:relevance}
+\title{Topic Relevance}
+\subtitle{New Attack Vectors on IoT Devices}
+
+\subsection{IoT Security in General} % 1.5 min
+\label{sub:general_security}
+\begin{frame}{IoT Security in General}
+
+\end{frame}
+
+\subsection{Smart Light Security} % 1 min
+\label{sub:smart_light_security}
+\begin{frame}{Smart Light Security}
+
+\end{frame}
+
+\subsubsection{Ignoring Functionality} % 1 min
+\label{subsub:ignoring}
+\begin{frame}{Ignoring Functionality}
+	
+\end{frame}
+
+\subsubsection{Extending Functionality} % 1.5 min
+\label{subsub:extending}
+\begin{frame}{Extending Functionality}
+	
+\end{frame}
+
+
+\section{Theoretical Background} % 7 min
+\label{sec:theory}
+\title{Theoretical Background}
+\subtitle{Extended Functionality Attack on Smart Lights}
+
+\subsection{Covert Communication Channel} % 1 min
+\label{sub:covert_channel}
+\begin{frame}{Covert Communication Channel}
+
+\end{frame}
+
+\subsection{Communication With Lights} % 1 min
+\label{sub:light_communication}
+\begin{frame}{Communication With Lights}
+
+\end{frame}
+
+\subsection{Smart Light Systems} % 1 min
+\label{sub:smart_lights}
+\begin{frame}{Smart Light Systems}
+  
+\end{frame}
+
+\subsubsection{Encoding} % 2 min
+\label{subsub:encoding}
+\begin{frame}{Encoding: ...}
+     
+\end{frame}
+
+\subsubsection{Decoding} % 2 min
+\label{subsub:decoding}
+\begin{frame}{Decoding: ...}
+ 
+\end{frame}
+
+\section{Demonstration} % 5 min
+\label{sec:demonstration}
+\title{Demonstration}
+\subtitle{Covert Communication Channel on Philips Hue White Smart Light}
+
+\section{Conclusion} % 3 min
+\label{sec:conclusion}
+\title{Conclusion}
+\subtitle{Summary and Outlook}
+\begin{frame}{Conclusion} % 1.5 min
+
+\end{frame}
+
+\begin{frame}{Outlook} % 1.5 min
+
+\end{frame}
+
+
+
+%% to show a last slide similar to the title slide: information for the last page
+\title{Questions?}
+\subtitle{}
+\section{Questions}
+
+
+%% appendix of 'extra' slides
+\appendix
+
+\begin{frame}[allowframebreaks]{Bibliography}
+	\bibliographystyle{alpha}
+	\bibliography{../papers/literature.bib}
+\end{frame}
+
+\end{document}
+
+% vim: spell ts=2 sw=2
