@@ -12,6 +12,7 @@
 \usepackage{pgfpages}
 \setbeameroption{show notes on second screen=right} % Both
 
+\usepackage[]{natbib}
 
 %% ------------------------------------------------------------------
 %% - foot: Add a footer line for conference name and date.
@@ -189,8 +190,17 @@
 \subsection{Results}%
 \label{sub:results}
 
-% FRAME results
-% Some frames with plots from our results
+\begin{frame}{Some Results I}
+	\includegraphics[width=\textwidth]{../experiment/140-135-2.png}
+\end{frame}
+
+\begin{frame}{Some Results II}
+	\includegraphics[width=\textwidth]{../experiment/200-195-10Mhz.png}
+\end{frame}
+
+\begin{frame}{Some Results III}
+	\includegraphics[width=\textwidth]{../experiment/250-245.png}
+\end{frame}
 
 \section{Demonstration} % 5 min
 \label{sec:demonstration}
@@ -201,11 +211,40 @@
 \label{sec:conclusion}
 \title{Conclusion}
 \subtitle{Summary and Outlook}
-\begin{frame}{Conclusion} % 1.5 min
 
+\begin{frame}{Conclusion} % 1.5 min
+	\begin{block}{Successes}
+		\begin{itemize}
+			\item We can distinguish brightness differences invisible to the human eye
+			\item We \emph{think that we can} see the PWM, not just brightness
+			\item TODO: Automatically detect brightness changes
+		\end{itemize}
+		$\rightarrow$ Research from \cite{Ronen:2016:EFAIDCSL} reproduced in principle.
+	\end{block}
+
+	\pause
+	\begin{alertblock}{Failures}
+		Automating this is hard:
+		\begin{itemize}
+			\item Very high variance in our measurements
+			\item Much trial and error to obtain a good picture
+			\item Limited range and robustness to lighting conditions
+		\end{itemize}
+	\end{alertblock}
 \end{frame}
 
 \begin{frame}{Outlook} % 1.5 min
+	An automated covert channel could in principal be built using this technique.
+	% TODO Good channel encoding, more robust pwm detection, higher range, automatic calibration needed of course!
+
+	\begin{block}{Important Lessons}
+		\begin{itemize}
+			\item Connected LEDs should not be trusted in secure areas
+			\item Smart lights should not have this many brightness levels. Fading and throttling improve their security a little though.
+			\item Combine this demo with the insecurity of IoT devices for maximum effect.
+			\item Alternatively, if you must use smart lights, isolate and secure them as much as possible.
+		\end{itemize}
+	\end{block}
 
 \end{frame}
 
@@ -221,7 +260,7 @@
 \appendix
 
 \begin{frame}[allowframebreaks]{Bibliography}
-	\bibliographystyle{alpha}
+	\bibliographystyle{abbrvnat}
 	\bibliography{../papers/literature.bib}
 \end{frame}
 
