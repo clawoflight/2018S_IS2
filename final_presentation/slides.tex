@@ -145,19 +145,49 @@
 \end{frame}
 
 \section{Experiment}%
-\label{sec:results}
+\label{sec:experiment}
 
 % Maybe move some of this to background?
 % Or rename to experiment?
 
-% FRAME controlling the light
-% - hue API using hueadm
-% - limitations: latency between commands, automatic fading
+\subsection{Controlling the Light}%
+\label{sub:controlling_the_lights}
 
-% FRAME experimental setup
-% - arduino to configure the sensor
-% - picoscope
-% - python scripts
+\begin{frame}{Controlling the Light}
+	We use the Hue API for simplicity.
+
+	\begin{itemize}
+		\item Bridge controls light via ZLL
+		\item We interface with REST-API on bridge
+	\end{itemize}
+
+	\pause
+	\begin{block}{Limitations}
+		\begin{itemize}
+			\item Rate limit due to throttling by bridge?
+			\item Automatic fading by the bridge or light (no phase shifts!)
+		\end{itemize}
+		May be worked around some by speaking ZLL directly?
+	\end{block}
+\end{frame}
+
+\subsection{Experimental Setup}%
+\label{sub:experimental_setup}
+
+\begin{frame}{Overview}
+	% TODO Julia: Diagramm
+	% - Arduino setzt Einstellungen vom Sensor
+	% - Probe vom Pico hängt am Sensor und an der Masse/Erdung/Ground vom Arduino
+	% - Arduino und Pico hängen am Laptop
+	% - Python-Logo im Laptop
+\end{frame}
+
+\begin{frame}{Experimental Setup}
+	\includegraphics[trim={0 0 0 12cm},clip]{../experiment/project_setup/20180510_123244.jpg}
+\end{frame}
+
+\subsection{Results}%
+\label{sub:results}
 
 % FRAME results
 % Some frames with plots from our results
