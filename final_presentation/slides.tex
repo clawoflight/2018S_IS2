@@ -98,6 +98,7 @@
 % - structure: First Taxonomy (main paper), then overview of main paper and possible related work
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 \section{Topic Relevance} % 2 min
 \label{sec:relevance}
 \title{Topic Relevance}
@@ -105,58 +106,98 @@
 
 \subsection{IoT Security in General} % 1 min
 \label{sub:general_security}
-\begin{frame}{IoT Security in General}
-
+\begin{frame}{IoT Security in General} % talk about security challenges which arise with iot
+	\only<1>
+	{
+		\begin{figure}
+			\centering
+			\includegraphics[height=5.5cm,keepaspectratio]{img/iot_ecosystem.png}
+			\caption{\small{Infrastructure of IoT ecosystem} \footnote{\tiny{Zhan et. al. Understanding IoT Security Through the Data Crystal Ball: Where We Are Now and Where We Are Going to Be}}}
+		\end{figure}
+		
+	}
+	\only<2> % attack vectors 
+	{
+		\begin{figure}
+			\centering
+			\includegraphics[height=5.5cm, keepaspectratio]{img/iot-ecosystem_attack-vectors.png}
+			\caption{\small{Attack Vectors in IoT ecosystem} \footnote{\tiny{Zhan et. al. Understanding IoT Security Through the Data Crystal Ball: Where We Are Now and Where We Are Going to Be / \textit{edited}}}}
+		\end{figure}
+	}
 \end{frame}
 
 \subsection{Smart Light Security} % .5 min
 \label{sub:smart_light_security}
-\begin{frame}{Smart Light Security}
-
+\begin{frame}{Smart Light Security} % talk about importance of focus on smart light security (-> ubiquity) --> name example of zll worm (IoT goes nuclear paper)
+	\begin{figure} % TODO: QUESTION: since we just shortly introduce smart light security here (I would do this with the example of the IoT goes nuclear paper), I chose this pictur - not 100% sure if it is suitable - what do you think ?
+		\centering
+		\includegraphics{img/nyc-blackout.jpg}
+		\caption{\small{NYC Blackout of 1977 (Allan Tannenbaum/Getty Images)}}
+	\end{figure}
 \end{frame}
 
 \subsubsection{Extending Functionality} % .5 min
 \label{subsub:extending}
-\begin{frame}{Extending Functionality}
-	
+\begin{frame}{Extending Functionality} % give reminder that we focus on covert data transmission over smart lights
+	\begin{figure}
+		\centering
+		\includegraphics{img/extended-func-attack-light.png}
+	\end{figure}
 \end{frame}
 
 
 \section{Theoretical Background} % 3 min
 \label{sec:theory}
-\title{Theoretical Background}
-\subtitle{Extended Functionality Attack on Smart Lights}
+\title{Theoretical Background} 
+\subtitle{Extended Functionality Attack on Smart Lights} % describe how communication with lights in general works and then how it is done with smart lights; name requirements in order to do that covertly (which more or less is standard since communication doesn't affect illumination)
 
-\subsection{Covert Communication Channel} % 1 min
-\label{sub:covert_channel}
-\begin{frame}{Covert Communication Channel}
-
-\end{frame}
-
-\subsection{Communication With Lights} % 1 min
-\label{sub:light_communication}
+\subsection{(Covert) Communication With Lights} % 1.5 min
+\label{sub:covert_light_communication}
 \begin{frame}{Communication With Lights}
-
+	\begin{block}{General Light Communication}
+		\begin{itemize}
+			\item Change PWM signal
+			\item \textbf{Off} period represents logical \textbf{0}
+			\item \textbf{On} period represents logical \textbf{1}
+		\end{itemize}
+		
+	\end{block}
+	\begin{block}{Smart Light Communication}
+		\begin{itemize}
+			\item Send close brightness change commands
+			\item \textbf{Lower leve} represents logical \textbf{0}
+			\item \textbf{Higher level} represents logical \textbf{1}
+		\end{itemize}
+	\end{block}
+\end{frame}
+\begin{frame}{(Covert) Communication With Lights}
+	\begin{block}{Covertness}
+	\begin{itemize}
+		\item Flicker at a rate above 60 Hz or use close brightness commands
+		\item Detectable by sensor but not seen by human eye
+	\end{itemize}
+\end{block}
 \end{frame}
 
-\subsection{Smart Light Systems} % 1 min
+\subsection{Smart Light Systems} % 1.5 min
 \label{sub:smart_lights}
-\begin{frame}{Smart Light Systems}
-  
+\begin{frame}{Smart Light Systems} % show components of smart light system, how component communicate 
+  \begin{figure}
+  	\centering
+  	\includegraphics{img/smart-light-system.png} 
+  	\caption{\small{System architecture of a Philips Hue connected lighting system with two bulbs} \footnote{\tiny{Morgner et al. All Your Bulbs Are Belong to Us: Investigating the Current State of Security in Connected Lighting Systems / \textit{edited}}}}
+  \end{figure}
 \end{frame}
+
 
 \section{Experiment}%
 \label{sec:experiment}
 
-% Maybe move some of this to background?
-% Or rename to experiment?
-
-\subsection{Controlling the Light}%
+\subsection{Controlling the Light} % TODO: NOTE: I would mention how the communication in a smart light system works in the context of the smart light system setup (Theoretical Background - slide 6, before) - but regarding slides I would just leave it like this 'cause now we have a smooth leading over from Theoretical Background to Experiment section ?
 \label{sub:controlling_the_lights}
 
 \begin{frame}{Controlling the Light}
 	We use the Hue API for simplicity.
-
 	\begin{itemize}
 		\item Bridge controls light via ZLL
 		\item We interface with REST-API on bridge
@@ -176,11 +217,15 @@
 \label{sub:experimental_setup}
 
 \begin{frame}{Overview}
-	% TODO Julia: Diagramm
+	% Diagramm:
 	% - Arduino setzt Einstellungen vom Sensor
 	% - Probe vom Pico hängt am Sensor und an der Masse/Erdung/Ground vom Arduino
 	% - Arduino und Pico hängen am Laptop
 	% - Python-Logo im Laptop
+	\begin{figure}
+		\centering
+		\includegraphics{img/experimental-setup_overview.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}{Experimental Setup}
@@ -190,7 +235,7 @@
 \subsection{Results}%
 \label{sub:results}
 
-\begin{frame}{Some Results I}
+\begin{frame}{Some Results I} 
 	\includegraphics[width=\textwidth]{../experiment/140-135-2.png}
 \end{frame}
 
@@ -202,10 +247,12 @@
 	\includegraphics[width=\textwidth]{../experiment/250-245.png}
 \end{frame}
 
+
 \section{Demonstration} % 5 min
 \label{sec:demonstration}
 \title{Demonstration}
 \subtitle{Covert Communication Channel on Philips Hue White Smart Light}
+
 
 \section{Conclusion} % 3 min
 \label{sec:conclusion}
