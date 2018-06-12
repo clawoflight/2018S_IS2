@@ -197,6 +197,7 @@
 \label{sub:controlling_the_lights}
 
 \begin{frame}{Controlling the Light}
+	\note{1m}
 	We use the Hue API for simplicity.
 	\begin{itemize}
 		\item Bridge controls light via ZLL
@@ -226,24 +227,29 @@
 		\centering
 		\includegraphics{img/experimental-setup_overview.png}
 	\end{figure}
+	\note{40s}
 \end{frame}
 
 \begin{frame}{Experimental Setup}
 	\includegraphics[trim={0 0 0 12cm},clip]{../experiment/project_setup/20180510_123244.jpg}
+	\note{20s}
 \end{frame}
 
 \subsection{Results}%
 \label{sub:results}
 
-\begin{frame}{Some Results I} 
+\begin{frame}{Some Results I}
+	\note{2m for the 3 images}
 	\includegraphics[width=\textwidth]{../experiment/140-135-2.png}
 \end{frame}
 
 \begin{frame}{Some Results II}
+	\note{2m for the 3 images}
 	\includegraphics[width=\textwidth]{../experiment/200-195-10Mhz.png}
 \end{frame}
 
 \begin{frame}{Some Results III}
+	\note{2m for the 3 images}
 	\includegraphics[width=\textwidth]{../experiment/250-245.png}
 \end{frame}
 
@@ -260,6 +266,16 @@
 \subtitle{Summary and Outlook}
 
 \begin{frame}{Conclusion} % 1.5 min
+	\note{1.5--2m
+	
+	Improvements for our project:
+	\begin{itemize}
+		\item Good channel encoding
+		\item More robust PWM detection
+		\item Higher range
+		\item Automatic calibration
+	\end{itemize}
+	}
 	\begin{block}{Successes}
 		\begin{itemize}
 			\item We can distinguish brightness differences invisible to the human eye
@@ -281,6 +297,7 @@
 \end{frame}
 
 \begin{frame}{Outlook} % 1.5 min
+	\note{1m}
 	An automated covert channel could in principle be built using this technique.
 	% TODO Good channel encoding, more robust pwm detection, higher range, automatic calibration needed of course!
 
@@ -288,7 +305,7 @@
 		\begin{itemize}
 			\item Connected LEDs should not be trusted in secure areas
 			\item Smart lights should not have this many brightness levels. Fading and throttling improve their security a little though.
-			\item Combine this demo with the insecurity of IoT devices for maximum effect.
+			\item \ldots combine this demo with the insecurity of IoT devices for maximum effect.
 			\item Alternatively, if you must use smart lights, isolate and secure them as much as possible.
 		\end{itemize}
 	\end{block}
