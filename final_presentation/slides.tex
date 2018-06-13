@@ -10,7 +10,7 @@
 
 %% NOTES
 \usepackage{pgfpages}
-\setbeameroption{show notes on second screen=right} % Both
+%\setbeameroption{show notes on second screen=right} % Both
 
 \usepackage[]{natbib}
 
@@ -68,6 +68,8 @@
 %% ------------------------------------------------------------------
 
 \begin{document}
+	
+\section{title}	
 
 %% ALTERNATIVE TITLEPAGE
 %% The next block is how you add a titlepage with the 'nosectiontitlepage' option, which switches off
@@ -98,11 +100,10 @@
 % - structure: First Taxonomy (main paper), then overview of main paper and possible related work
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\section{Topic Relevance} % 2 min
-\label{sec:relevance}
 \title{Topic Relevance}
 \subtitle{New Attack Vectors on IoT Devices}
+\section{Topic Relevance} % 2 min
+\label{sec:relevance}
 
 \subsection{IoT Security in General} % 1 min
 \label{sub:general_security}
@@ -112,7 +113,7 @@
 		\begin{figure}
 			\centering
 			\includegraphics[height=5.5cm,keepaspectratio]{img/iot_ecosystem.png}
-			\caption{\small{Infrastructure of IoT ecosystem} \footnote{\tiny{Zhan et. al. Understanding IoT Security Through the Data Crystal Ball: Where We Are Now and Where We Are Going to Be}}}
+			\caption{\small{Infrastructure of IoT ecosystem} \footnote[frame]{\tiny{Zhan et. al. Understanding IoT Security Through the Data Crystal Ball: Where We Are Now and Where We Are Going to Be}}}
 		\end{figure}
 		
 	}
@@ -121,7 +122,7 @@
 		\begin{figure}
 			\centering
 			\includegraphics[height=5.5cm, keepaspectratio]{img/iot-ecosystem_attack-vectors.png}
-			\caption{\small{Attack Vectors in IoT ecosystem} \footnote{\tiny{Zhan et. al. Understanding IoT Security Through the Data Crystal Ball: Where We Are Now and Where We Are Going to Be / \textit{edited}}}}
+			\caption{\small{Attack Vectors in IoT ecosystem}\setcounter{footnote}{1}\footnote[frame]{\tiny{Zhan et. al. Understanding IoT Security Through the Data Crystal Ball: Where We Are Now and Where We Are Going to Be / \textit{edited}}}}
 		\end{figure}
 	}
 \end{frame}
@@ -131,8 +132,8 @@
 \begin{frame}{Smart Light Security} % talk about importance of focus on smart light security (-> ubiquity) --> name example of zll worm (IoT goes nuclear paper)
 	\begin{figure} % TODO: QUESTION: since we just shortly introduce smart light security here (I would do this with the example of the IoT goes nuclear paper), I chose this pictur - not 100% sure if it is suitable - what do you think ?
 		\centering
-		\includegraphics{img/nyc-blackout.jpg}
-		\caption{\small{NYC Blackout of 1977 (Allan Tannenbaum/Getty Images)}}
+		\includegraphics[height=5.7cm,keepaspectratio]{img/nyc-blackout.jpg}
+		\caption{\small{NYC Blackout of 1977}\setcounter{footnote}{2}\footnote[frame]{\tiny{Allan Tannenbaum/Getty Images}}}
 	\end{figure}
 \end{frame}
 
@@ -146,10 +147,11 @@
 \end{frame}
 
 
+\title{Theoretical Background} 
+\subtitle{Extended Functionality Attack on Smart Lights}
 \section{Theoretical Background} % 3 min
 \label{sec:theory}
-\title{Theoretical Background} 
-\subtitle{Extended Functionality Attack on Smart Lights} % describe how communication with lights in general works and then how it is done with smart lights; name requirements in order to do that covertly (which more or less is standard since communication doesn't affect illumination)
+% describe how communication with lights in general works and then how it is done with smart lights; name requirements in order to do that covertly (which more or less is standard since communication doesn't affect illumination)
 
 \subsection{(Covert) Communication With Lights} % 1.5 min
 \label{sub:covert_light_communication}
@@ -184,12 +186,14 @@
 \begin{frame}{Smart Light Systems} % show components of smart light system, how component communicate 
   \begin{figure}
   	\centering
-  	\includegraphics{img/smart-light-system.png} 
-  	\caption{\small{System architecture of a Philips Hue connected lighting system with two bulbs} \footnote{\tiny{Morgner et al. All Your Bulbs Are Belong to Us: Investigating the Current State of Security in Connected Lighting Systems / \textit{edited}}}}
+  	\includegraphics[height=5.5cm, keepaspectratio]{img/smart-light-system.png} 
+  	\caption{\small{System architecture of a Philips Hue connected lighting system with two bulbs}\setcounter{footnote}{3}\footnote[frame]{\tiny{Morgner et al. All Your Bulbs Are Belong to Us: Investigating the Current State of Security in Connected Lighting Systems / \textit{edited}}}}
   \end{figure}
 \end{frame}
 
 
+\title{Experiment} 
+\subtitle{Covert Communication Channel on Philips Hue White}
 \section{Experiment}%
 \label{sec:experiment}
 
@@ -231,6 +235,7 @@
 \end{frame}
 
 \begin{frame}{Experimental Setup}
+	\centering
 	\includegraphics[trim={0 0 0 12cm},clip]{../experiment/project_setup/20180510_123244.jpg}
 	\note{20s}
 \end{frame}
@@ -254,16 +259,16 @@
 \end{frame}
 
 
+\title{Demonstration}
+\subtitle{Covert Communication Channel on Philips Hue White}
 \section{Demonstration} % 5 min
 \label{sec:demonstration}
-\title{Demonstration}
-\subtitle{Covert Communication Channel on Philips Hue White Smart Light}
 
 
-\section{Conclusion} % 3 min
-\label{sec:conclusion}
 \title{Conclusion}
 \subtitle{Summary and Outlook}
+\section{Conclusion} % 3 min
+\label{sec:conclusion}
 
 \begin{frame}{Conclusion} % 1.5 min
 	\note{1.5--2m
@@ -280,7 +285,7 @@
 		\begin{itemize}
 			\item We can distinguish brightness differences invisible to the human eye
 			\item We \emph{think that we can} see the PWM, not just brightness
-			\item TODO: Automatically detect brightness changes
+			%\item TODO: Automatically detect brightness changes
 		\end{itemize}
 		$\rightarrow$ Research from \cite{Ronen:2016:EFAIDCSL} reproduced in principle.
 	\end{block}
