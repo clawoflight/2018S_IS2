@@ -55,6 +55,9 @@ def main():
     # Parse command-line arguments
     bstart = int(sys.argv[1])
     bend = int(sys.argv[2])
+    change_brightness = True
+    if len(sys.argv) > 3:
+        change_brightness = sys.argv[3] == "true"
 
     # Set initial hue brightness
     os.system("hueadm light 1 \"={}\"".format(bstart))
@@ -66,7 +69,8 @@ def main():
     scope.runBlock()
 
     # Change brightness levels
-    os.system("hueadm light 1 \"={}\"".format(bend))
+    if (change_brightness):
+        os.system("hueadm light 1 \"={}\"".format(bend))
     # time.sleep(.01)
     os.system("hueadm light 1 \"={}\"".format(bstart))
 
