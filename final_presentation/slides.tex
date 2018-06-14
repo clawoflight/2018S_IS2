@@ -119,9 +119,10 @@
 	}
 	\only<2> % attack vectors 
 	{
-		\note{NETWORK SIZE -> keep energy consumption low -> limit in computation and energy capabilities --> skip authentication, encryption \\
-			HUMANS tightly involved -> access control and privacy --> attacker can steal this sensitive info \\
-			HETEROGINITY -> bulk of protocols co-exist --> need overall valid solution 
+		\note{NETWORK SIZE -> limit in computation and energy capabilities --> skip authentication, encryption \\
+			
+			[ HUMANS tightly involved --> attacker can steal this sensitive info -> access control and privacy \\
+			HETEROGINITY -> bulk of protocols co-exist --> need overall valid solution ]
 			}
 		\begin{figure}
 			\centering
@@ -183,8 +184,10 @@
 	\end{block}
 \end{frame}
 \begin{frame}{(Covert) Communication With Lights}
-	\note{change between two brightnesses at high rate --> choose two close brightnesses \\
-		Hue 255 levels}
+	\note{change between two brightnesses at high rate -> reminder: human eye threshold \\
+		cannot change PWM --> choose two close brightnesses \\
+		
+		[ Hue 255 levels ]}
 	\begin{block}{Covertness}
 	\begin{itemize}
 		\item Flicker at a rate above 60 Hz or use close brightness commands
@@ -213,9 +216,9 @@
 \label{sub:controlling_the_lights}
 
 \begin{frame}{Controlling the Light}
-	\note{mention limits of bridge \\
-		restrictionss on rate of commands sent in system \\
-		brightness increased incrementally -> avoid sharp changes --> thus no phase shifts}
+	\note{limits we met du to communication over bridge: \\
+		(x) restrictions on rate of commands sent in system --> restricts our transmission speed \\
+		(x) brightness increased incrementally -> avoid sharp changes --> thus cannot see phase shifts}
 	We use the Hue API for simplicity.
 	\begin{itemize}
 		\item Bridge controls light via ZLL
@@ -236,9 +239,12 @@
 \label{sub:experimental_setup}
 
 \begin{frame}{Overview}
-	\note{Arduino setup lght sensor + power supply \\
-		sensor frequency output interpreted by picoscope \\
-		pytho script set up pico + read out signal + plot to check}
+	\note{Arduino serves as power supply + setup light sensor \\
+		sensor frequency output sent to picoscope \\
+		sennsor frequency: 800 kHz -> pico samples at 10 MHz \\
+		python read out frequency output from pico \\
+		do stft to get phase content of sections of signal since changes over time \\ 
+		plot to check}
 	% Diagramm:
 	% - Arduino setzt Einstellungen vom Sensor
 	% - Probe vom Pico hängt am Sensor und an der Masse/Erdung/Ground vom Arduino
@@ -248,7 +254,6 @@
 		\centering
 		\includegraphics{img/experimental-setup_overview.png}
 	\end{figure}
-	\note{40s}
 \end{frame}
 
 \begin{frame}{Experimental Setup}
