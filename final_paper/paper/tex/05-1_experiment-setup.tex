@@ -1,19 +1,19 @@
 \section{Covert Channel on IoT Light Bulb}
 \label{sec:experiment}
 
-We have created a covert communication channel on the \textit{Philips Hue} light bulb by changing near brightness levels at a very high rate such that those changes cannot be seen by the human eye but can be robustly distinguished by a light sensor. To prove that data can be leaked over this channel we used a oscilloscope. In the following sections we first describe the setup components and their functionality. After that we elaborate the actual attack.\newline
+We proved that a covert communication channel on the \textit{Philips Hue} light bulb can be created by changing between two close brightness levels at a such a high rate that those changes cannot be seen by the human eye but can be robustly distinguished by a light sensor in order to decode the sent data. To prove that data can be leaked over this channel we used a oscilloscope. In the following sections we first describe the setup components and their functionality. After that we elaborate the actual attack.\newline
 
 \subsection{Experimental Setup}
 \label{sec:setup}
 
 % TODO: add cost estimation here + ev link pics of setup
 
-\subsubsection{IoT Light Bulb.} We used the \textit{Philips~Hue~White~E27} light bulbs~\cite{TODO:bibid}. The bulbs come together with a Wi-Fi bridge which allows to remotely control them using i.~e. a laptop. In order to setup the smart light system the bridge needs to be connected to the user's local Wi-Fi or Ethernet. Once connected, the user can send brightness-change commands from any device within the local network using the Hue~API. We made recourse to a command line based version of the Hue~API~\cite{TODO:bibid}, which allowed us to easily send the commands via the python script we used for realizing the data transmission.
-Hue has 255 different brightness levels, which forced us to sample at a very hight rate in order to determine changes in the light frequency output. The difference between two close levels is imperceptible to the human eye but can properly be detected by a light sensor.
+\subsubsection{IoT Light Bulb.} We used the \textit{Philips~Hue~White} light bulbs~\cite{Philips:2018:Hue}. The bulbs come together with a bridge which allows to remotely control the bulbs using i.~e. a laptop. In order to setup the smart light system the bridge needs to be connected to the user's local Wi-Fi or Ethernet. Once connected, the user can send brightness-change commands from any device within the local network using the Hue~API. We made recourse to a command line based version of the Hue~API~\cite{Bahamas10:2018:HueApi}, which allowed us to easily send the commands via the python script we used for realizing the experiment. The bridge further forwards the sent commands over a radio frequency (RF) transmitter using ZLL to the light bulbs.\newline
+Communicating with the light bulbs over the Hue bridge brings some limitations with it \cite{Ronen:2016:EFAIDCSL}. For one, the bridge or the LED drivers implement some smoothing feature in order to avoid sharp brightness changes. Due to the automatic fading we cannot see phase shifts in our signal output, which makes it harder to analyze. Further, the bridge restricts the rate of commands which can be sent within the system. Fortunately, we didn't need to send that much commands for our proof, but in case such an attack should actually be leveraged, one may need to access the ZLL communication directly in order to circumvent the rate limit.\newline
+Hue has 255 different brightness levels, which forced us to sample the output at a very hight rate in order to determine the changes in the light frequency output. But, on the other hand, due to the minor difference between two close levels, the changes were imperceptible to the human eye.
 
 \subsubsection{Light Sensor.} For measuring the changes in light intensity we used the \textit{TAOS~TCS3200 Color~Sensor}~\cite{TODO:bibid}. This sensor gives the corresponding frequency output to the received light intensity. Further this sensor can easily be used with Arduino.  
  
 \subsubsection{Arduino.} Other than former researchers \cite{Ronen:2016:EFAIDCSL}, we used the Arduino board as power source only, since the frequency output can more easily be measured using the \textit{PicoScope} described below. 
-
 \subsubsection{Picoscope.} To decode out our covert channel we used the \textit{PicoScope~3205D~MSO} since it is capable of sampling 10~MS/s, which we need in order to measure the light sensor's frequency output. Actually, the PicoScope is able to sample up to 1~GS/s, but for our needs 10~MS/s suffice.
 

@@ -1,5 +1,78 @@
 \section{Related Work}
 \label{sec:related_work}
 
-%TODO: copy
-related work chapter
+% TODO just copied - correct according to feedback (make clear what is relevant for our topic and what is not, put some more technical details to parts which are relevant for our project)
+
+\subsection{General Security of IoT Devices}% 
+\label{sub:general_security_iot}
+
+% \cite{Grau:2015:Ctyf} % Fridge and more % magazine article. nothing new here, good to make non-scientists aware of the issues though.
+% \cite{Bhartiya::YSFMK} % Fridge and more % online article. nothing new here, except the idea that a fridge or freezer could be used for murder.
+
+It is widely known that IoT devices have poor security in general.
+The most recent state-of-the art security survey was performed by
+Zhang~et~al.~\cite{Zhang:2017:UISTDCBWWNaWWG} % General
+They provide a detailed analysis of vulnerabilities and defense mechanisms.
+In particular, they note that much academic literature is overly conservative because most security analyses are published in whitepapers and on blogs, causing them to be ignored in scientific surveys.
+They suspect either a lack of expertise, or outright neglect of security design on the part of the vendors.
+
+Additionally,
+Restuccia~et~al.~\cite{Restuccia:2018:SITNPaRC} % General
+recently provided a very good analysis and taxonomy of the systematic problems and future challenges of IoT security. The paper strongly advocates for security by design of connected devices from their cradle to their grave.
+
+\subsection{Smart Light Security}% 
+\label{sub:smart_light_security}
+The security of smart light systems is particularly important because of their ubiquity. Hence, researchers have studied them in detail.
+%The security of smart light systems is of decisive importance since smart light solutions are also used in public buildings and offices. Hence there are several former studies analyzing the security of IoT light bulbs~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}.
+
+% Light bulbs
+Dhanjani~\cite{Dhanjani:2013:HLSEPHPWLS} found several ways to initiate \textit{Denial-of-Service}~(DoS) attacks.
+He was able to cause sustained blackouts which can be of high risk i.e.\ if hospitals are involved.
+The primary security issue allowing this attack lay in the connection of smart bulbs to their controller.
+Dhanjani also mentioned the possibility of encryption flaws in the implementation of the \textit{ZigBee Light Link}~(ZLL) which is used for communication between the bridge and the light bulbs. However, this attack would only work within close proximity, limiting it's impact.
+
+% Light bulbs & ZLL
+Morgner~et~al.~\cite{Morgner:2016:AYBBUICSSCLS} further investigated the security of ZLL and showed that the aforementioned attack is more dangerous than anticipated.
+They were able to control ZLL-certified light bulbs from a distance over 15 to 36 meters.
+Their research proved and particularized Dhanjani's~\cite{Dhanjani:2013:HLSEPHPWLS} findings that exploitable vulnerabilities exist in the design of the ZLL standard.
+ZLL provides the so-called \textit{touchlink~commissioning} which uses a global ZLL master key to secure the setup process.
+This master key was leaked in 2015~\cite{Morgner:2016:AYBBUICSSCLS} and ever since the touchlink procedure is considered to be insecure.
+Due to the flaws in the touchlink specification Morgner~et~al.\ were able to introduce a new network key which was then accepted by all connected light bulbs, further allowing the authors to send malicious commands.
+
+% ZLL
+Ronen~et~al.~\cite{Ronen:2018:IGNCZCR} also used flaws in ZLL to attack smart light solutions.
+Their attack was of even higher concern since they were able to exchange the light bulbs firmware with one containing malware, and, because of vulnerabilities in the ZigBee communication, they were able to further spread the malware over all nearby light bulbs.
+Thus, an attacker would be able to launch a \textit{war-flight} and infect all smart lamps of a whole city.
+
+
+\subsection{Functionality-Ignoring Attacks}
+\label{sec:functionality_ignoring_attacks}
+% Focus on botnets for spam, ddos
+A big portion of the research on IoT security was conducted about attacks ignoring the intended functionality of IoT devices. In particular, the appearance of the Mirai botnet \cite{Antonakakis:2017:UMB} led to multiple papers about botnets comprised of IoT devices.
+
+Angrishi~\cite{Angrishi:2017:TitiiiviIb} makes the very important point that IoT devices should not be seen as specialized devices with added intelligence, but rather as (general) computing devices that are performing specialized tasks.
+Attackers are certainly aware of this, and most attacks on IoT devices involve botnets for DDoS or spamming. DDoS-capable malware was surveyed and classified by Donno~et~al.~\cite{Donno:2017:ADIM}.
+
+% NOTE: deleted section below where you nicely described Mirai botnets in detail - but due to lack of space I think we sould elaborate this in the corresponding section in our final paper
+
+%The most comprehensive analysis of the Mirai botnet, responsible for the record-breaking 1.3Tb/s DDoS on DynDNS, was published by
+%Antonakakis~et~al.~\cite{Antonakakis:2017:UMB}. % Mirai
+%In particular, they found a list of default passwords found in the source code of the malware, which clearly show it targeting cheap IoT devices, many of them IP cameras.
+%They clearly show that Mirai succeeded primarily because of incredibly low-hanging fruit: (tiny) dictionary attacks on devices accessible from the open internet were enough.
+
+% \cite{Kolias:2017:DIMaOB} % botnets % removed because strictly inferior to Antonakakis:2017:UMB
+
+\subsection{Functionality-Extending Attacks}
+\label{sec:functionality_extending_attacks}
+The most interesting kind of attack is the so called \textit{Functionality-Extending~Attack} where e.g.\ an attacker uses an IoT lightbulb for other purposes than illumination.
+In particular, an attacker can use light~emitting~diodes~(LEDs) for an optical wireless communication system, which was elaborated several years ago~\cite{Komine:2004:FAfVLCSuLL, Elgala:2007:OVLWCBoWL}. 
+The communication with visible light is done by repeatedly changing the LED's brightness level. To control the light output from the LED, the pulse width can be modulated, which is known as \textit{pulse width modulation} (PWM).  
+Using the possibility of creating a communication channel with the help of LEDs, Guri~et~al.~\cite{Guri:2017:xCDEANvRL} were able to leak data using a router's status LEDs.
+
+Since smart light solutions also make use of LEDs, Ronen~and~Shamir~\cite{Ronen:2016:EFAIDCSL} were able to create a covert communication channel using smart lights.
+As the setup process of an IoT light bulb is vulnerable~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}, Ronen and Shamir were able to abuse the \textit{application~programming~interface}~(API) of the IoT light bulb in order to make the LEDs switch between two light intensities. Unfortunately the brightness of the LEDs can be changed at a very high rate, such that it cannot be noticed by the human eye but can be detected by a light sensor. 
+% The core issue is that the LEDs can change brightness faster than 60Hz, which shouldn't be necessary or allowed (c.f. the fact that newer HUEs cannot flicker very fast). --> I explicitly mention this now - I think now it is better understandable
+% The other attack directly measured the PWM duty cycle, nothing can be done about that. That's why the second attack would still work. --> don't they measure pwm duty cycle with both LED's, since the other possibility of changing brightness is more prone to errors due to interferences from outside? Or don't I understand your comment correctly - in that case feel free to add a sentence for that :)
+The light sensor measures the exact duration and frequency of those flickers and converts it to a digital frequency in order to leak sensitive data.
+Ronen and Shamir showed that this kind of attack can be used to extract data from air-gapped networks.
+Besides leaking data through a covert channels, they have shown that the light flickering can also be misused for creating epileptic seizures.

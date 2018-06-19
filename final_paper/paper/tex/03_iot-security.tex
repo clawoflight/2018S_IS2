@@ -2,7 +2,11 @@
 \label{sec:iot_security}
 
 %TODO
-IoT security introduction to chapter, short description of state of the art
+%IoT security introduction to chapter, short description of state of the art
+
+Several former researchers have shown, that security is an afterthought in IoT devices \cite{Morgner:2016:AYBBUICSSCLS, Zhang:2017:UISTDCBWWNaWWG, Restuccia:2018:SITNPaRC, Angrishi:2017:TitiiiviIb, Grau:2015:Ctyf, Kolias:2017:DIMaOB}. The main reason for this are the new challenges which arise in the context of IoT systems.
+Within an IoT system, several different devices can be connected, which affects network performance drastically. Hence also computation and memory capabilities for security measures are limited. Public key authentication (PKA) methods, like ......, are way too expensive due to the provided key size \cite{Restuccia:2018:SITNPaRC}. This cries out for novel security mechanisms specific for IoT devices, but those are not yet realized. Instead, many vendors of IoT devices do not provide proper security measures or even omit them deliberately. On the other hand, access control of remotely sent messages as well as end-to-end message encryption are very important since humans, and thus tons of private information, are tightly involved in IoT systems. 
+Further, if an attacker is able to join ones IoT system, he could either brick the functionality of the device or use it for different purposes as intended. Attacks on IoT devices can thus be classified as ignoring functionality attacks (\ref{sec:ignoring_func}) or extending functionality attacks (\ref{sec:extending_func}).
 
 \subsection{Ignoring Functionality Attack}
 \label{sec:ignoring_func}
@@ -13,8 +17,3 @@ functionality ignoring attacks description
 \label{sec:extending_func}
 
 functionality extending attacks description
-
-\subsection{IoT Light Bulbs}
-\label{sec:iot_bulbs}
-
-functionality extending attacks described for light bulbs in more detail

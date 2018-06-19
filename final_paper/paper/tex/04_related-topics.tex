@@ -1,15 +1,9 @@
-\section{Related Topics}
-\label{sec:related_topics}
-
-% TODO: (feel free to rename)
-description of required knowledge in order to be able to understand and conduct attack
-
-\subsection{Covert Channel}
-\label{sec:covert_channel}
-
-describe how covert channel work
-
-\subsection{Communication with Light}
+\section{Communication with Light}
 \label{sec:light_communication}
 
-describe general communication with light
+%description of required knowledge in order to be able to understand and conduct attack (genaral communication with light)
+
+A functionality extension attack on smart lights is essentially a covert channel where the communication happens over the light spectrum. A covert channel is a communication channel which is usually not intended for information transfer purposes. Such channels are often used by unauthorized parties to exfiltrate sensitive data. So in order to leverage such an attack we first need to understand how communication with light works.\newline % TODO: maybe mention this in extended functionality section and hand over to this section
+The idea of using light as a part of the communication spectrum was funded by the German physicist Harald Haas \cite{Haas:2016:WiL}. As the name says, instead of radio waves, the visible part of the electromagnetic spectrum, namely light, is used. Thus, this way of wireless communication is also called Li-Fi.
+In order to conduct Li-Fi, simple white LED bulbs are needed. The actual transmission of data is based on fast switching of the LEDs, such that those changes are not seen by the human eye. The human eye flicker threshold lies around 60 Hz and can easily be beaten by LEDs. Those quick flickers allow transmitting data by interpreting the on period as a logical one, whilst the off period is interpreted as a logical zero.\newline
+In the case of our used smart lights, the PWM signal cannot be changed directly. To set some illumination level, brightness values which are bound to a specific illumination factor and internally modulate the pulse width of the light signal are sent to the LEDs. Thus, different to traditional light communication, the higher brightness level represents a logical one and the lower brightness level represents a logical zero.

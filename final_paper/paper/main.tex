@@ -1,6 +1,10 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 
 \usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+\onehalfspacing
 
 % environment for itemization on titlepage
 \newenvironment{nospaceitemize}
@@ -35,9 +39,12 @@
 	\input{tex/06_results.tex}
 	\input{tex/07_conclusion.tex}
 
+	\clearpage
 	\newpage
 	
 	% bibliography
+	\renewcommand{\thepage}{}
 	\bibliographystyle{plain}
+	\nocite{*}
 	\bibliography{bib/literature.bib}
 \end{document}
