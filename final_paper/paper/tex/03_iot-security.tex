@@ -1,19 +1,22 @@
-\section{IoT Security}
+\section{IoT Security} % ~ 1.5 pages
 \label{sec:iot_security}
 
-%TODO
+%TODO check, ev extend
 %IoT security introduction to chapter, short description of state of the art
 
-Several former researchers have shown, that security is an afterthought in IoT devices \cite{Morgner:2016:AYBBUICSSCLS, Zhang:2017:UISTDCBWWNaWWG, Restuccia:2018:SITNPaRC, Angrishi:2017:TitiiiviIb, Grau:2015:Ctyf, Kolias:2017:DIMaOB}. The main reason for this are the new challenges which arise in the context of IoT systems.
-Within an IoT system, several different devices can be connected, which affects network performance drastically. Hence also computation and memory capabilities for security measures are limited. Public key authentication (PKA) methods, like ......, are way too expensive due to the provided key size \cite{Restuccia:2018:SITNPaRC}. This cries out for novel security mechanisms specific for IoT devices, but those are not yet realized. Instead, many vendors of IoT devices do not provide proper security measures or even omit them deliberately. On the other hand, access control of remotely sent messages as well as end-to-end message encryption are very important since humans, and thus tons of private information, are tightly involved in IoT systems. 
-Further, if an attacker is able to join ones IoT system, he could either brick the functionality of the device or use it for different purposes as intended. Attacks on IoT devices can thus be classified as ignoring functionality attacks (\ref{sec:ignoring_func}) or extending functionality attacks (\ref{sec:extending_func}).
+Several former researchers have shown, that security is an afterthought in IoT devices~\cite{Morgner:2016:AYBBUICSSCLS, Zhang:2017:UISTDCBWWNaWWG, Restuccia:2018:SITNPaRC, Angrishi:2017:TitiiiviIb, Grau:2015:Ctyf, Kolias:2017:DIMaOB}. The main reason for the poor security are the new challenges which arise in the context of IoT systems.
+Within an IoT system, several different devices can be connected, which affects network performance considerably. Hence also computation and memory capabilities for security measures are limited. Standard public key authentication~(PKA) methods, like Rivest–Shamir–Adleman~(RSA), are way too expensive due to the provided key size and also approaches with smaller key sizes like elliptic curve-cryptography~(ECC) need to be adopted~\cite{Restuccia:2018:SITNPaRC}. This cries out for novel security mechanisms specific for IoT devices, but those are not yet realized. Instead, many vendors of IoT devices do not provide proper security measures or even omit them deliberately. On the other hand, access control of remotely sent messages as well as end-to-end message encryption are very important since humans, and thus tons of private information, are tightly involved in IoT systems. 
+If an attacker is able to join ones IoT system, he could either brick the aimed functionality of the device or use it for different purposes as intended. Attacks on IoT devices can thus be classified as ignoring functionality attacks or extending functionality attacks, which are briefly described in the following sections.
 
-\subsection{Ignoring Functionality Attack}
+\subsection{Functionality Ignoring Attack}
 \label{sec:ignoring_func}
 
-functionality ignoring attacks description
+In this type of attack the compromised IoT device only serves as a standard computing device within the network since an attacker disregards the usual functionality of the device and instead of that spreads malware over the network the IoT device is in~\cite{Ronen:2016:EFAIDCSL}. This attack is indeed not unique to IoT devices, but due to their vulnerabilities, focusing on IoT devices to leverage such an attack might be more promising. In order to ignore the intended functionality of any IoT device, an attacker could initiate a Distributed Denial of Service~(DDoS) attack. Further the attacker could spread malware by combining all compromised IoT devices to a botnet. The most prominent DDoS IoT botnet is \textit{Mirai}~\cite{Donno:2017:ADIM, Kolias:2017:DIMaOB, Antonakakis:2017:UMB, Angrishi:2017:TitiiiviIb}. In 2016 the Mirai was used to perform a 1.2~Terabit~per~second~(Tbps) great DDoS attack. The attack was relying upon the weak authentication methods of IoT devices.
 
-\subsection{Extending Functionality Attack}
+
+\subsection{Functionality Extending Attack}
 \label{sec:extending_func}
 
-functionality extending attacks description
+With this kind of attack, an attacker uses the IoT device for a completely different purpose than intended. %This so called functionality extending attack was first introduced by Ronen~and~Shamir~\cite{Ronen:2016:EFAIDCSL}. In particular, their findings were the foundation for this thesis. 
+This attack is especially conductible on smart light systems, since introducing some unexpected physical effect on other IoT devices is much more sophisticated, i. e.\ using an IoT fridge or freezer for murder \cite{Bhartiya::YSFMK}. 
+A functionality extension attack on IoT light bulbs is essentially a covert channel where the communication happens over the light spectrum. The lights frequency output can then be measured by an attacker to exfiltrate sensitive data, which even works from air-gapped networks \cite{Ronen:2016:EFAIDCSL}.
