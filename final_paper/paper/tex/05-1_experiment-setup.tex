@@ -2,19 +2,38 @@
 \section{Covert Channel on IoT Light Bulb} % ~ 1/4 page (short intro)
 \label{sec:experiment}
 
-We proved that a covert communication channel on the \textit{Philips Hue} light bulb can be created by changing between two close brightness levels at a such a high rate that those changes cannot be seen by the human eye but can be robustly distinguished by a light sensor in order to decode the sent data. To prove that data can be leaked over this channel we used a oscilloscope. In the following sections we first describe the setup components and their functionality. After that we elaborate the actual attack.\newline
+We tested a covert channel attack on the \textit{Philips Hue White} lightning system. With our experiment we were able to prove that data can be covertly transmitted over the Hue light bulb. 
+On the transmission side we used a laptop running our python script over which the Hue API is accessed in order to send brightness commands.
+At the receiver side we used a light sensor which converts the light intensities to a frequency signal. That signal was forwarded to an oscilloscope which further sent the received frequency output to our laptop where we plot the results in order to validate the sent bits.
+
+In the following sections we first describe the setup components and their functionality. After that we elaborate the actual attack.\newline
 
 \subsection{Experimental Setup} % ~ 2 pages (including subsections bulb to pico)
 \label{sec:setup}
 
-% TODO: add cost estimation here + ev link pics of setup
+% picoscope ~1000 €
+% light sensor ~7 €
+% bulbs ~70 €
+% arduino etc ~10-20 €
+% --> overall: less than 1100 €
 
-\subsubsection{IoT Light Bulb.} We used the \textit{Philips~Hue~White} light bulbs~\cite{Philips:2018:Hue}. The bulbs come together with a bridge which allows to remotely control the bulbs using i.~e. a laptop. In order to setup the smart light system the bridge needs to be connected to the user's local Wi-Fi or Ethernet. Once connected, the user can send brightness-change commands from any device within the local network using the Hue~API. We made recourse to a command line based version of the Hue~API~\cite{Bahamas10:2018:HueApi}, which allowed us to easily send the commands via the python script we used for realizing the experiment. The bridge further forwards the sent commands over a radio frequency (RF) transmitter using ZLL to the light bulbs.\newline
-Communicating with the light bulbs over the Hue bridge brings some limitations with it \cite{Ronen:2016:EFAIDCSL}. For one, the bridge or the LED drivers implement some smoothing feature in order to avoid sharp brightness changes. Due to the automatic fading we cannot see phase shifts in our signal output, which makes it harder to analyze. Further, the bridge restricts the rate of commands which can be sent within the system. Fortunately, we didn't need to send that much commands for our proof, but in case such an attack should actually be leveraged, one may need to access the ZLL communication directly in order to circumvent the rate limit.\newline
+Our proof was implemented using affordable equipment which costs less than 1100.- €. Further, we did not need to run any unauthorized code on the light bulbs since the control over the Hue API suffices to create covert flicker effects. 
+Figure \ref{fig:setup} shows our overall receiving setup. An Arduino was used as power supply only and for setting up our light sensor in order to measure the bulbs luminosity and forwarding the frequency output to the picoscope.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{img/experimental-setup_overview.png}
+	\caption{Experimental setup for measuring the lights frequency output and reading the sent bits out of the received signal}
+	\label{fig:setup}
+\end{figure}
+
+\subsubsection{Transmitting Setup.} We used the \textit{Philips~Hue~White} light bulbs for our experiment~\cite{Philips:2018:Hue}. We bought the starter kit which contains two E27 9 Watt 806 Lumen bulbs together with a bridge which allows to remotely control the bulbs using i.~e. a laptop. In order to setup the smart light system the bridge needs to be connected to the user's local Wi-Fi or Ethernet. Once connected, the user can send brightness-change commands from any device within the local network using the Hue~API. We made recourse to a command line based version of the Hue~API~\cite{Bahamas10:2018:HueApi}, which allowed us to easily send the commands via the python script we used for realizing the experiment. The bridge further forwards the sent commands over a radio frequency (RF) transmitter to the light bulbs using the ZLL protocol.
+
 Hue has 255 different brightness levels, which forced us to sample the output at a very hight rate in order to determine the changes in the light frequency output. But, on the other hand, due to the minor difference between two close levels, the changes were imperceptible to the human eye.
 
-\subsubsection{Light Sensor.} For measuring the changes in light intensity we used the \textit{TAOS~TCS3200 Color~Sensor}~\cite{TODO:bibid}. This sensor gives the corresponding frequency output to the received light intensity. Further this sensor can easily be used with Arduino.  
- 
-\subsubsection{Arduino.} Other than former researchers \cite{Ronen:2016:EFAIDCSL}, we used the Arduino board as power source only, since the frequency output can more easily be measured using the \textit{PicoScope} described below. 
-\subsubsection{Picoscope.} To decode out our covert channel we used the \textit{PicoScope~3205D~MSO} since it is capable of sampling 10~MS/s, which we need in order to measure the light sensor's frequency output. Actually, the PicoScope is able to sample up to 1~GS/s, but for our needs 10~MS/s suffice.
+\subsubsection{Receiving Setup.} For measuring the changes in light intensity we used the \textit{TAOS~TCS3200 Color~Sensor}~\cite{DFRobot:2018:Sensor}. The sensor consists of an array of photo diodes where each is capable of filtering red, green, blue or clear white light. We set up the sensor to measure the clear white luminosity output of our Hue bulbs. The sensor contains an internal oscillator in order to convert the lights intensity output to a corresponding square-wave frequency signal. The TCS3200 is capable of communicating directly to an Arduino microcontroller.
+
+Other than former researchers \cite{Ronen:2016:EFAIDCSL}, we used the Arduino board as power source only, since we had an picoscope available in order to forward the frequency output more easily to our python script for further analysis.
+
+In order to visualize our frequency output for reading out our sent bit string, we used the \textit{PicoScope~3205D~MSO} since it is capable of sampling 10~MS/s, which we need in order to accurately measure the light sensor's frequency output which lies around 800 KHz. Actually, the picoscope is able to sample up to 1~GS/s when using one channel and 500 MS/s with two channels, but for our needs only 10~MS/s suffice.
 

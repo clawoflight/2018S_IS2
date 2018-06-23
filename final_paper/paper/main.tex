@@ -6,6 +6,10 @@
 
 \onehalfspacing
 
+% command for titlepage margins
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
 % environment for itemization on titlepage
 \newenvironment{nospaceitemize}
 { \begin{itemize}
@@ -22,6 +26,16 @@
 
 	\clearpage
 	
+	% preamble
+	\input{tex/00_preamble.tex}
+	\thispagestyle{empty} 
+	\clearpage
+	
+	% abstract
+	\input{tex/00_abstract.tex}
+	\thispagestyle{empty} 
+	\clearpage
+	
 	% table of contents
 	\tableofcontents
 	\thispagestyle{empty}
@@ -30,12 +44,13 @@
 	
 	% chapters
 	\input{tex/01_introduction.tex}
-	\input{tex/02_related-work.tex}
+	\input{tex/02_related-work.tex} % TODO: maybe we should move some findings from the rel work to the iot sec section 
 	\input{tex/03_iot-security.tex}
 	\input{tex/04_related-topics.tex}
-	% TODO: stopped at chapter 5 with writeup
+	% TODO: modify chapters below according to eventual improvements of our experiment
 	\input{tex/05-1_experiment-setup.tex}
 	\input{tex/05-2_attack.tex}
+	\input{tex/05-3_limitations.tex}
 	\input{tex/06_results.tex}
 	\input{tex/07_conclusion.tex}
 

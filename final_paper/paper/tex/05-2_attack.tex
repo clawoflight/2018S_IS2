@@ -1,4 +1,5 @@
-% TODO - WORK IN PROGRESS
+% TODO - FIRST TRY EXPERIMENT WITHOUT STFT
+
 \subsection{Attack Description} % ~ 2.5 to 3 pages (including subsections)
 \label{sec:exp:description}
 
@@ -13,7 +14,7 @@ The following paragraphs give a detailed description of the main steps to realiz
 \subsubsection{Contorlling Smart Light Bulbs.} 
 % --> describe components of smart LEDs, how they work, controller communication
 Smart light bulbs consist of three main components: (1) a RF receiver, (2) a processiong unit and (3) LEDs and LED drivers.
-The communication with the controller is ensured through the \textit{RF receiver} and relies on the \textit{ZigBee~Light~Link}~(ZLL) protocol. The received commands are further forwarded to the \textit{processing unit} which interprets the processed signal and controls the LED by modulating the pulse width. The PWM allows the different dimming factors. When sending a brightness change command via the Hue API, this automatically forces the processing unit to generate the corresponding PWM signal. The PWM is sent to the LED drivers which further turn the LEDs on and off at a very fast rate such that those changes in the duty cycle cannot be seen by the human eye. Since Hue comes with 255 brightness levels which need to be differentiated smoothly, a PWM with a frequency around 20 KHz is used \cite{Ronen:2016:EFAIDCSL}. 
+The communication with the controller is ensured through the \textit{RF receiver} and relies on the ZLL protocol. The received commands are further forwarded to the \textit{processing unit} which interprets the processed signal and controls the LED by modulating the pulse width. The PWM allows the different dimming factors. When sending a brightness change command via the Hue API, this automatically forces the processing unit to generate the corresponding PWM signal. The PWM is sent to the LED drivers which further turn the LEDs on and off at a very fast rate such that those changes in the duty cycle cannot be seen by the human eye. Since Hue comes with 255 brightness levels which need to be differentiated smoothly, a PWM with a frequency around 20 KHz is used \cite{Ronen:2016:EFAIDCSL}. 
 
 % TODO: for the following 2 sections to complete need to discuss what we now actually see and used sampling rate, which pics we want to use etc
 \subsubsection{Crafting PWM Signal.}

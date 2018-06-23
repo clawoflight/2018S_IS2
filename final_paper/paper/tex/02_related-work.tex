@@ -1,7 +1,7 @@
 \section{Related Work} % ~ 2 pages
 \label{sec:related_work}
 
-% TODO just copied - correct according to feedback (make clear what is relevant for our topic and what is not, put some more technical details to parts which are relevant for our project)
+% TODO correct according to feedback (make clear what is relevant for our topic and what is not, put some more technical details to parts which are relevant for our project)
 
 % TODO: should we keep sections, shorten ?
 
@@ -26,10 +26,11 @@ recently provided a very good analysis and taxonomy of the systematic problems a
 The security of smart light systems is particularly important because of their ubiquity. Hence, researchers have studied them in detail.
 %The security of smart light systems is of decisive importance since smart light solutions are also used in public buildings and offices. Hence there are several former studies analyzing the security of IoT light bulbs~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}.
 % Light bulbs
-Dhanjani~\cite{Dhanjani:2013:HLSEPHPWLS} found several ways to initiate \textit{Denial-of-Service}~(DoS) attacks.
+% TODO: need to make clear in which way ZLL is relevant for us - wasnt really for project itself but due to limitations caused by bridge communication we seize ZLL as alternative solution for researches who want to send more commands at higher rate - further those researches are part of emphasizing that iot has poor security in general
+Dhanjani~\cite{Dhanjani:2013:HLSEPHPWLS} found several ways to initiate Denial-of-Service~(DoS) attacks.
 He was able to cause sustained blackouts which can be of high risk i.e.\ if hospitals are involved.
 The primary security issue allowing this attack lay in the connection of smart bulbs to their controller.
-Dhanjani also mentioned the possibility of encryption flaws in the implementation of the \textit{ZigBee Light Link}~(ZLL) which is used for communication between the bridge and the light bulbs. However, this attack would only work within close proximity, limiting it's impact.
+Dhanjani also mentioned the possibility of encryption flaws in the implementation of the ZigBee~Light~Link~(ZLL) protocol which is used for communication between the bridge and the light bulbs. However, this attack would only work within close proximity, limiting its impact.
 % Light bulbs & ZLL
 Morgner~et~al.~\cite{Morgner:2016:AYBBUICSSCLS} further investigated the security of ZLL and showed that the aforementioned attack is more dangerous than anticipated.
 They were able to control ZLL-certified light bulbs from a distance over 15 to 36 meters.
@@ -46,9 +47,10 @@ Thus, an attacker would be able to launch a \textit{war-flight} and infect all s
 %\subsection{Functionality-Ignoring Attacks}
 %\label{sec:functionality_ignoring_attacks}
 % Focus on botnets for spam, ddos
+% TODO here we need to make our relevance clear - looked at it for taxonomy part but didnt really need it for our project - ev shorten, just mention that there are two types of iot attacks according to former researches and rest is mentioned in ignoring attacks part
 A big portion of the research on IoT security was conducted about attacks ignoring the intended functionality of IoT devices. In particular, the appearance of the Mirai botnet \cite{Antonakakis:2017:UMB} led to multiple papers about botnets comprised of IoT devices.
 Angrishi~\cite{Angrishi:2017:TitiiiviIb} makes the very important point that IoT devices should not be seen as specialized devices with added intelligence, but rather as (general) computing devices that are performing specialized tasks.
-Attackers are certainly aware of this, and most attacks on IoT devices involve botnets for DDoS or spamming. DDoS-capable malware was surveyed and classified by Donno~et~al.~\cite{Donno:2017:ADIM}.
+Attackers are certainly aware of this, and most attacks on IoT devices involve botnets for Distributed~DoS~(DDoS) or spamming. DDoS-capable malware was surveyed and classified by Donno~et~al.~\cite{Donno:2017:ADIM}.
 The most comprehensive analysis of the Mirai botnet
 %, responsible for the record-breaking 1.3Tb/s DDoS on DynDNS, 
 was published by
@@ -62,12 +64,12 @@ They clearly show that Mirai succeeded primarily because of incredibly low-hangi
 %\label{sec:functionality_extending_attacks}
 Ronen and Shamir~\cite{Ronen:2016:EFAIDCSL} introduced the so called \textit{Functionality-Extending Attack} where e.g.\ an attacker uses an IoT lightbulb for other purposes than illumination.
 In particular, an attacker can use light~emitting~diodes~(LEDs) for an optical wireless communication system, which was elaborated several years ago~\cite{Komine:2004:FAfVLCSuLL, Elgala:2007:OVLWCBoWL}. 
-The communication with visible light is done by repeatedly changing the LED's brightness level. To control the light output from the LED, the pulse width can be modulated, which is known as \textit{pulse width modulation} (PWM).  
+The communication with visible light is done by repeatedly changing the LED's brightness level. To control the light output from the LED, the pulse width can be modulated, which is known as pulse~width~modulation~(PWM).  
 Using the possibility of creating a communication channel with the help of LEDs, Guri~et~al.~\cite{Guri:2017:xCDEANvRL} were able to leak data using a router's status LEDs.
 Since smart light solutions also make use of LEDs, Ronen~and~Shamir~\cite{Ronen:2016:EFAIDCSL} were able to create a covert communication channel using smart lights.
-As the setup process of an IoT light bulb is vulnerable~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}, Ronen and Shamir were able to abuse the \textit{application~programming~interface}~(API) of the IoT light bulb in order to make the LEDs switch between two light intensities. Unfortunately the brightness of the LEDs can be changed at a very high rate, such that it cannot be noticed by the human eye but can be detected by a light sensor. 
+As the setup process of an IoT light bulb is vulnerable~\cite{Dhanjani:2013:HLSEPHPWLS, Morgner:2016:AYBBUICSSCLS, Ronen:2018:IGNCZCR}, Ronen and Shamir were able to abuse the application~programming~interface~(API) of the IoT light bulb in order to make the LEDs switch between two light intensities. To the advantage of an attacker, the brightness of the LEDs can be changed at a very high rate, such that it cannot be noticed by the human eye but can be detected by a light sensor. 
 % The core issue is that the LEDs can change brightness faster than 60Hz, which shouldn't be necessary or allowed (c.f. the fact that newer HUEs cannot flicker very fast). --> I explicitly mention this now - I think now it is better understandable
 % The other attack directly measured the PWM duty cycle, nothing can be done about that. That's why the second attack would still work. --> don't they measure pwm duty cycle with both LED's, since the other possibility of changing brightness is more prone to errors due to interferences from outside? Or don't I understand your comment correctly - in that case feel free to add a sentence for that :)
 The light sensor measures the exact duration and frequency of those flickers and converts it to a digital frequency in order to leak sensitive data.
-Ronen and Shamir showed that this kind of attack can be used to extract data from air-gapped networks.
-Besides leaking data through a covert channels, they have shown that the light flickering can also be misused for creating epileptic seizures.
+Ronen and Shamir showed that this kind of attack can be used to extract data from air-gapped networks and the channel provides enough bandwidth to leak keys and passwords, e. g.\ in offices where the lights are turned on over 12 hours a day an attacker could leak more then 10 KB per day.
+Besides leaking data through a covert channel, they have shown that the light flickering can also be misused for creating epileptic seizures.
