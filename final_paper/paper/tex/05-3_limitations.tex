@@ -3,5 +3,9 @@
 
 %Describe problems we met (restrictions due to communication over bridge, signal analysis, ...)
 
-Communicating with the light bulbs over the Hue bridge brings some limitations with it \cite{Ronen:2016:EFAIDCSL}. For one, the bridge or the LED drivers implement some smoothing feature in order to avoid sharp brightness changes. Due to the automatic fading we cannot see phase shifts in our signal output, which makes it harder to analyze. Further, the bridge restricts the rate of commands which can be sent within the system. Fortunately, we didn't need to send that much commands for our proof, but in case such an attack should actually be leveraged, one may need to access the ZLL communication directly in order to circumvent the rate limit.
+Communicating with the light bulbs over the Hue bridge brings some limitations with it~\cite{Ronen:2016:EFAIDCSL}. For one, the bridge or the LED drivers implement some smooth fading feature in order to avoid sharp brightness changes. Due to the automatic fading we cannot see phase shifts in our signal output, which makes it harder to analyze.
+
+Furthermore, the bridge restricts the rate of commands which can be sent within the system.
+While this does not impact the functionality of our proof-of-concept since the command rate doesn't determine the flickering frequency, it does limit the bandwith of the channel.
+Thus, in case such an attack should actually be leveraged, one may need to access the ZLL communication directly in order to circumvent the rate limit.
 
