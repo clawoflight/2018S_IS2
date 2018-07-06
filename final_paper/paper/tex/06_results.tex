@@ -1,4 +1,10 @@
-\section{Results} % ~ 1.5 pages
+\section{Results} % ~ 1.5 pages % Call this Outlook?
 \label{sec:results}
 
+We ware able to reproduce the most important finding from Ronen and Shamir~\cite{Ronen:2016:EFAIDCSL} --- Smart LEDs can be used as a covert communication channel.
+Specifically, we showed that a light sensor can detect the PWM profile used to dim the LED, allowing a program to distinguish brightness levels that are too close to each other for the human eye to distinguish.
 
+More work is required to make this attack practical, but it is definitely doable even with limited resources.
+Given better signal processing, calibration, and a good channel encoding, the full transmission sequence could be automated in a very reasonable time frame.
+To make the attack truly practical, better range would be required, for example by putting the light sensor in the focal point of a telescope focused on the light bulb~\cite{Ronen:2016:EFAIDCSL} and maybe using a more sensitive sensor.
+That telescope would be the most expensive required piece of hardware by several orders of magnitude.
