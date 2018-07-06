@@ -1,7 +1,26 @@
 \section{Conclusion} % ~ 3/4 page
 \label{sec:conclusion}
 
-work out requirements and summarize results; countermeasures; outlook
+% work out requirements and summarize results; countermeasures; outlook
+IOT devices in general are largely insecure and should be trusted at most as much as any other device in a network.
+Smart lights in particular are interesting because they are networked LEDs and therefore could be used to build a covert communication channel.
+Additionally, visible light is often the only part of the EM spectrum that is allowed to leave an air-gapped system.
+Therefore, the attack that we replicated in this paper could potentially be used to exfiltrate data from air-gapped network.
+
+Ronen and Shamir~\cite{Ronen:2016:EFAIDCSL} showed that specially-crafted PWM profiles could be used to build a covert channel and mentioned that the PWM from dimming could be used once the method they used was no longer available.
+Our findings confirm that argument: Using the PWM, we were able to distinguish brightness levels indistinguishable to the human eye.
+Therefore, Smart LEDs lend themselves to building covert channels.
+
+More work is required to make this attack practical, but it is definitely doable even with limited resources.
+Given better signal processing, calibration, and a good channel encoding, the full transmission sequence could be automated in a very reasonable time frame.
+% TODO this may be better somewhere else?
+To make the attack truly practical, better range would be required, for example by putting the light sensor in the focal point of a telescope focused on the light bulb~\cite{Ronen:2016:EFAIDCSL} and maybe using a more sensitive sensor.
+That telescope would be the most expensive required piece of hardware by several orders of magnitude.
+
+The biggest takeaway from this is that smart lights are not to be trusted in secure environments. Use dumb lights instead.
+If for some reason it is necessary to use networked lights, standard security practices (for networked and IOT devices) should be followed:
+Change passwords, disable unused services, isolate IOT devices onto their own network(s), awareness that they are networked general-purpose computing systems.
+Additionally, seriously consider not allowing visible light to exit the air-gapped room or building by designing it without windows.
 
 % Countermeasures
 % general:
@@ -12,4 +31,5 @@ work out requirements and summarize results; countermeasures; outlook
 % end users need to be aware of capabilities and apps installed and interactiong with iot devices
 % ...
 % spec to light:
+% no windows
 % ...
