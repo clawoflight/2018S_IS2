@@ -5,7 +5,7 @@
 
 % TODO intro
 
-The following paragraphs give a detailed description of the main steps to realize such an attack. Therefore we first need to look more precisely at the functional principle of smart light bulbs. Further we have a look at how smooth brightness changes are achieved and how we actually get data out of the received signal.\newline
+The following paragraphs give a detailed description of the main steps to realize such an attack. Therefore, we first need to look more precisely at the functional principle of smart light bulbs. Further we have a look at how smooth brightness changes are achieved and how we actually get data out of the received signal.\newline
 
 %write about brightness change frequency, why high sampling frequency is needed, Human eye threshold; mention parts in python program ... 
 
@@ -18,14 +18,14 @@ The communication with the controller is ensured through the \textit{RF receiver
 
 % TODO: for the following 2 sections to complete need to discuss what we now actually see and used sampling rate, which pics we want to use etc
 \subsubsection{Crafting PWM Signal}
-% --> describe how fast changes are achieved, frequency output with light sensor, collection of signal with picoscope
+% --> describe how fast changes are achieved, frequency output with light sensor, collection of signal with PicoScope
 % 10 MS/s = 10 MHz
 
 % TODO fill in concrete values
 Since we can no longer craft a custom PWM signal using the Hue API, we had to make do with the PWM used for dimming.
 Thus, our goal was to use close brightness levels and attempt to distinguish them from their PWM profile.
 
-Because of the great amount of brightness levels, we had to measure very small off periods of about xxx ns. This could be done with the described light sensor as well as the picoscope, since the light sensor's output is around 800 KHz, which we could easily sample at 10 MS/s with our picoscope.
+Because of the great amount of brightness levels, we had to measure very small off periods of about xxx ns. This could be done with the described light sensor as well as the PicoScope, since the light sensor's output is around 800 KHz, which we could easily sample at 10 MS/s with our PicoScope.
 
 \subsubsection{Getting Data}
 % --> describe analysis of signal
@@ -48,7 +48,7 @@ We found that distance between sensor and light had a strong impact on the corre
 	\label{fig:plot-140-135}
 \end{figure}
 
-We were not able to robustly automatically distinguish brightness levels, but that may be because we spent most of our time trying to do that with the fourier-transformed data when it may have been better to analyze the sinusoid from the light sensor directly.
+We were not able to robustly automatically distinguish brightness levels, but that may be because we spent most of our time trying to do that with the Fourier-transformed data when it may have been better to analyze the sinusoid from the light sensor directly.
 In any case, this is a solvable signal processing problem and more a question of time.
 
 With that done, the next step would be to select brightness levels for 0 and 1, and maybe a third in between the two to be used as delimiter and reduce the need for synchronization.
