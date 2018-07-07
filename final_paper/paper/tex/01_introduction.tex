@@ -4,30 +4,27 @@
 % NOTE: introduce abbrevations here - need to check following chapters whether some abbrvs were not introduced here
 % abbrevs: IoT, PWM?, ZLL?, ..?
 
-IoT devices generally have poor security. The most recent state-of-the-art security survey was performed by Zhang~et~al.~\cite{Zhang:2017:UISTDCBWWNaWWG}. They provide a detailed analysis of vulnerabilities and defense mechanisms and suspect either a lack of expertise, or outright neglect of security design from the part of vendors.
+Internet~of~Things~(IoT) devices have a poor security in general. The most recent state-of-the-art security survey was performed by Zhang~et~al.~\cite{Zhang:2017:UISTDCBWWNaWWG}. They provide a detailed analysis of vulnerabilities and defense mechanisms and suspect either a lack of expertise, or outright neglect of security design from the part of vendors.
 This insecurity extends to smart light systems.
 
-Dhanjani~\cite{Dhanjani:2013:HLSEPHPWLS} exploited several issues in the connection setup between smart lights and their controller as well as encryption flaws in ZigBee Light Link (ZLL), which is used for communication between the controller and the light bulbs.
-He used these flaws to perform Denial-Of-Service (DoS) Attacks, which could cause blackouts e.g.\ in hospitals and other critical infrastructure.
-Fortunately, the impact of his attack was limited it's short physical range.
+Dhanjani~\cite{Dhanjani:2013:HLSEPHPWLS} exploited several issues in the connection setup between smart lights and their controller as well as encryption flaws in the ZigBee~Light~Link~(ZLL) protocol, which is used for communication between the controller and the light bulbs.
+He used these flaws to perform Denial-Of-Service~(DoS) attacks, which could cause blackouts e.g.\ in hospitals and other critical infrastructure.
+Fortunately, the impact of his attack was limited to its short physical range.
 
-Morgner~et~al.\ showed that the flaws in ZLL are more serious: They were able to control ZLL-certified light bulbs from up to 36 meters~\cite{Morgner:2016:AYBBUICSSCLS}.
-To make things even worse, Ronen~et~al.\ were able to replace the firmware on smart lights with a worm able to spread to nearby bulbs over ZLL.
+Morgner~et~al.\ showed that the flaws in ZLL are more serious: They were able to control ZLL-certified light bulbs from up to 36~meters~\cite{Morgner:2016:AYBBUICSSCLS}.
+To make things even worse, Ronen~et~al.~\cite{Ronen:2018:IGNCZCR} were able to replace the firmware on smart lights with a worm able to spread to nearby bulbs over ZLL.
 This brings the scenario of a drive-by \emph{war-flight} attack, infecting the smart lights in an entire block or city, into the realm of possibility.\\
 
 Most of the attacks on smart lights, including the aforementioned ones, focused on \emph{disabling} (i.e.\ DoS) or \emph{ignoring} the intended functionality of the devices (e.g.\ to build bot nets).
-While these kinds of attacks definitely pose a security threat, they are not particularly interesting because they don't differ much from attacks on other IoT devices, or even on any networked general-purpose computer.
+While these kinds of attacks definitely pose a security threat, they are not particularly interesting because they do not differ much from attacks on other IoT devices, or even on any networked general-purpose computer.
 
-However, in an attack vaguely similar to the more recent (and more famous) data extraction using routers status LEDs~\cite{Guri:2017:xCDEANvRL}, Ronen and Shamir introduced the category of \emph{functionality extension attacks}, which (mis)use the functionality provided by a device to perform something not intended by its designers --- like the old engineering definition of \emph{hacking}.
+However, in an attack vaguely similar to the more recent (and more famous) data extraction using routers status LEDs~\cite{Guri:2017:xCDEANvRL}, Ronen~and~Shamir introduced the category of \emph{functionality extension attacks}, which (mis)use the functionality provided by a device to perform something not intended by its designers --- like the old engineering definition of \emph{hacking}.
 They used a smart light to build a \emph{covert communication channel} which is unlikely to be detected unless explicitly looked for.
 Also, and probably of even more immediate interest to Israeli security researchers, visible light is a very promising exfiltration channel for air-gapped systems because of its small apparent threat.
 
 Because this is an interesting, unique and not currently reproduced piece of research, we decided to try to reproduce it.
 
-\paragraph{Structure of this Paper}%
-\label{par:structure_of_this_paper}
-% TODO
-We will begin by covering some preliminaries and relevant related work in Sections~\ref{sec:related_work} and~\ref{sec:light_communication}.
+This paper is organized as follows: First, we cover some preliminaries and relevant related work in Sections~\ref{sec:related_work} and~\ref{sec:light_communication}.
 Then, we will proceed to give a detailed description of our attack in Section~\ref{sec:experiment}.
 Finally, we will draw conclusions and give an outlook in Section~\ref{sec:conclusion}.
 

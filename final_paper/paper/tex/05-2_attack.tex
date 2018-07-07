@@ -13,8 +13,8 @@ The following paragraphs give a detailed description of the main steps to realiz
 
 \subsubsection{Controlling Smart Light Bulbs} 
 % --> describe components of smart LEDs, how they work, controller communication
-Smart light bulbs consist of three main components: (1) a RF receiver, (2) a processing unit and (3) LEDs and LED drivers.
-The communication with the controller is ensured through the \textit{RF receiver} and relies on the ZLL protocol. The received commands are further forwarded to the \textit{processing unit} which interprets the processed signal and controls the LED by modulating the pulse width. The PWM allows the different dimming factors. When sending a brightness change command via the Hue API, this automatically forces the processing unit to generate the corresponding PWM signal. The PWM is sent to the LED drivers which further turn the LEDs on and off at a very fast rate such that those changes in the duty cycle cannot be seen by the human eye. Since Hue comes with 255 brightness levels which need to be differentiated smoothly, a PWM with a frequency around 20 KHz is used \cite{Ronen:2016:EFAIDCSL}. 
+Smart light bulbs consist of three main components: (1) a RF~receiver, (2) a processing unit and (3) LEDs and LED~drivers.
+The communication with the controller is ensured through the \textit{RF~receiver} and relies on the ZLL~protocol. The received commands are further forwarded to the \textit{processing unit} which interprets the processed signal and controls the LED by modulating the pulse width. The PWM allows the different dimming factors. When sending a brightness change command via the Hue API, this automatically forces the processing unit to generate the corresponding PWM signal. The PWM is sent to the \textit{LED~drivers} which further turn the LEDs on and off at a very fast rate such that those changes in the duty cycle cannot be seen by the human eye. Since Hue comes with 255~brightness~levels which need to be differentiated smoothly, a PWM with a frequency around 20~KHz is used~\cite{Ronen:2016:EFAIDCSL}. 
 
 % TODO: for the following 2 sections to complete need to discuss what we now actually see and used sampling rate, which pics we want to use etc
 \subsubsection{Crafting PWM Signal}
@@ -22,15 +22,15 @@ The communication with the controller is ensured through the \textit{RF receiver
 % 10 MS/s = 10 MHz
 
 % TODO fill in concrete values
-Since we can no longer craft a custom PWM signal using the Hue API, we had to make do with the PWM used for dimming.
+Since we can no longer craft a custom PWM signal using the Hue~API, we had to get along with the PWM used for dimming.
 Thus, our goal was to use close brightness levels and attempt to distinguish them from their PWM profile.
 
-Because of the great amount of brightness levels, we had to measure very small off periods of about xxx ns. This could be done with the described light sensor as well as the PicoScope, since the light sensor's output is around 800 KHz, which we could easily sample at 10 MS/s with our PicoScope.
+Because of the great amount of brightness levels, we had to measure very small off periods of about 200~ns. This could be done with the described light sensor as well as the PicoScope, since the light sensor's output is around 800~KHz, which we could easily sample at 10~MS/s with our PicoScope.
 
 \subsubsection{Getting Data}
 % --> describe analysis of signal
 Our primary goal was to distinguish adjacent brightness levels that cannot be distinguished by the human eye.
-For this purpose, we performed a Short-Time Fourier Transform (STFT) to transform the voltage sinusoid obtained from the light sensor into the frequency-over-time domain.
+For this purpose, we performed a Short-Time~Fourier~Transformation~(STFT) to transform the voltage sinusoid obtained from the light sensor into the frequency-over-time domain.
 
 As can be seen in Figure~\ref{fig:plot-140-135}, the difference between brightness levels is clearly visible upon optical inspection of the graph.
 For comparison, we found that it took around 10--15 levels of separation for the naked eye to distinguish 2 brightness levels, depending on the absolute brightness.
